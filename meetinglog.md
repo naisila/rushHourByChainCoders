@@ -28,3 +28,22 @@ Talha- Added additional information to the README.md file regarding the programm
 Naisila, Fatbardh- Added the src and doc directories where the source code and documentation will be included
 
 Masna- Updated the meeting logs
+
+## 3rd Meeting
+
+### Agenda
+
+-  Discussed about the general features of the game like user interface and gameplay
+
+### Activities and Contributions
+
+Talha- Suggested a Main Menu structure with Play, Settings and Exit buttons 
+
+Naisila- Suggested to add time limits to the puzzels
+
+Fatbardh- Suggested to add a reward system to the game / updated meeting log
+
+Masna- Suggested to use Stars as reward for solving the puzzles. If the player would solve the puzzle within a amount of time and moves
+they would be awarded 3 stars, those who failed one of those conditions would get 2 stars and those who failed both would get 1 star.
+
+Kunduz- Suggested to add a new button to Main Menu named My Garage where the user would use the starts that they won into prizes like new cars or avatars.
