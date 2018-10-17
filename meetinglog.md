@@ -47,3 +47,22 @@ Masna- Suggested to use Stars as reward for solving the puzzles. If the player w
 they would be awarded 3 stars, those who failed one of those conditions would get 2 stars and those who failed both would get 1 star.
 
 Kunduz- Suggested to add a new button to Main Menu named My Garage where the user would use the starts that they won into prizes like new cars or avatars.
+
+
+## 4th Meeting (16 october 2018)
+
+### Agenda
+
+-  Discuss details of the Class diagram
+-  Finalize details of functional and non-functional requirements and diagrams
+
+### Activities and Contributions
+
+Talha- Demonstrated first draft of Use case diagram and suggested to use array of cars and use blocks for constructing cars.
+
+Naisila- Demonstrated mock ups for all possible screens of the game and suggested to add two restart methods to classs diagram (one for restarting level, other for restarting the game).
+
+Fatbardh- Demonstrated first draft of class diagram and suggested to use text file for Settings of the game.
+
+Masna- Demonstrated first draft of sequence diagram and suggested to add "change name" and "change avatar" to the class diagram.
+Kunduz- Demonstrated first draft of Activity diagram and suggested possible version of state diagran.
