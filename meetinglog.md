@@ -111,3 +111,61 @@ Fatbardh - Updated the class diagram based on the decisions made.
 Masna - Completed the non functional and pseudo requirements and updated the sequence diagrams based on the decisions made.
 
 Kunduz - Completed the introduction based on the whole work done and updated activity and state diagrams based on the decisions made.
+
+## 7th Meeting (5 November 2018)
+
+### Agenda
+
+-  Brainstorm on how we will do the Design Report.
+
+### Activities and Contributions
+
+All - As there was a lot of new information to understand about a design report, we decided to look at previous years examples of Design Reports and read course slides, and have another meeting on the following day to divide the work.
+
+## 8th Meeting (6 November 2018)
+
+### Agenda
+
+-  Divide the work on the Design Report.
+
+### Activities and Contributions
+
+Naisila - Took responsibility for User Interface and Entities Subsystems, along with the respective class explanations.
+
+Masna - Took responsibility for writing Purpose of the System and Design Goals.
+
+Talha - Took responsibility for writing the Architectural Styles.
+
+Fatbardh - Took responsibility for writing Hardware/Software Mapping and Persistent Data Management
+
+Kunduz - Took responsibility for writing Access Control, Security and Boundary Conditions.
+
+Masna, Talha, Fatbardh, Kunduz - Since there was a lot of request on the Game Management Subsystem Interface, they all decided to work on this subsystem and merge the work/ideas in the following day.
+
+## 9th Meeting (7 November 2018)
+
+### Agenda
+
+-  Decide on the Game Management Subsystem Interface.
+-  Merge the work on the Design Report.
+
+### Activities and Contributions
+
+Naisila, Kunduz - Contributed in writing class explanations for the User Interface and Entities Subsystem Interfaces.
+
+Masna, Talha, Fatbardh - Merged the work/ideas for the Game Management Subsystem Interface by consulting with each other and Naisila and Kunduz who had worked on UI and Entities subsystem in order to agree on a single decision and not have inconsistencies. They created the diagram and wrote some class explanations.
+
+## 10th Meeting (8 November 2018)
+
+### Agenda
+
+-  Finish merging the work on the Design Report.
+-  Submit the Design Report.
+
+### Activities and Contributions
+
+Masna - Merged the three subsystem diagrams into one and thus created the merged Subsystem Decomposition diagram.
+
+Naisila - Compiled all the work into one document by taking care of possible inconsistencies between pieces of work of different people, as well as the format of the document. Submitted the design Report to GitHub.
+
+All - Contributed in writing class explanations (Attributes, Constructor, Methods) of classes belonging to different subsystems.
