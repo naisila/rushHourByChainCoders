@@ -28,6 +28,7 @@ public class RushHourFrame extends JFrame {
   private JPanel contentPane;
   private Game game;
   private ChooseDifficulty chooseDiff;
+  private ChoosePuzzle choosePuzz;
   
   /**
    * Launch the application.
@@ -50,11 +51,12 @@ public class RushHourFrame extends JFrame {
    */
   public RushHourFrame() {
     setTitle("<Rush Hour> by Chain Coders");
-    setResizable(false);
+    //setResizable(false);
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setBounds(200, 50, 614, 373);
     game = new Game();
     chooseDiff = new ChooseDifficulty();
+    choosePuzz = new ChoosePuzzle();
     RushHourFrame.this.setContentPane(chooseDiff);
   }
 }
