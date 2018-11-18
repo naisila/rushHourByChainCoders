@@ -1,0 +1,44 @@
+
+#playButton{
+    -fx-background-color: blue;
+    -fx-image: url("../pictures/play.png");
+    -fx-background-size: 30 30;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+#instructionButton{
+    -fx-background-color: grey;
+    -fx-image: url("../pictures/info.png");
+    -fx-background-size: 30 30;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+
+#costumizeButton{
+    -fx-background-color: blue;
+    -fx-image: url("../pictures/play.jpag");
+    -fx-background-size: 30 30;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+
+#quitButton{
+    -fx-background-color: grey;
+    -fx-image: url("../pictures/play.jpag");
+    -fx-background-size: 30 30;
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+}
+
+#leftPane{
+}
+
+#middlePane{
+}
+
+#rightPane{
+}
+
+ 
