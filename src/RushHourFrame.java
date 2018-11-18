@@ -27,6 +27,7 @@ public class RushHourFrame extends JFrame {
   
   private JPanel contentPane;
   private Game game;
+  private ChooseDifficulty chooseDiff;
   
   /**
    * Launch the application.
@@ -53,6 +54,7 @@ public class RushHourFrame extends JFrame {
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     setBounds(200, 50, 614, 373);
     game = new Game();
-    RushHourFrame.this.setContentPane(game);
+    chooseDiff = new ChooseDifficulty();
+    RushHourFrame.this.setContentPane(chooseDiff);
   }
 }
