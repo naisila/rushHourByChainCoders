@@ -1,13 +1,15 @@
 
 public class Square {
-	final private int SIZE = 50;
+	final private int SIZE = 60;
 	
 	private int x;
 	private int y;
+	private boolean occupied; 
 	
 	public Square(int x, int y) {
 		this.x = x;
 		this.y = y;
+		this.occupied = false;
 	}
 
 	public int getSize() {
@@ -21,19 +23,27 @@ public class Square {
 	public int getY() {
 		return y;
 	}
+
+	public boolean getOccupied() {
+		return this.occupied;
+	}
 	
 	public void setX( int x) {
 		this.x = x;
 	}
 	
-	public void setY(int y) {
+	public void setY( int y) {
 		this.y = y;
 	}
+	public void setOccupied( boolean b) {
+		this.occupied = b;
+	}
+	
 	public Boolean hasCoordinate( int x, int y) {
 		//check if the coordinate fits in the x direction
-		if( ( x < this.x + SIZE) && ( x > this.x ) )
+		if( ( x < this.x + SIZE) && ( x >= this.x ) )
 			//check if the coordinate fits in y direction
-			if( ( y < this.y) && (y > this.y-SIZE ))
+			if( ( y >= this.y) && (y < this.y + SIZE ))
 				return true;
 		return false;
 	}
