@@ -169,3 +169,72 @@ Masna - Merged the three subsystem diagrams into one and thus created the merged
 Naisila - Compiled all the work into one document by taking care of possible inconsistencies between pieces of work of different people, as well as the format of the document. Submitted the design Report to GitHub.
 
 All - Contributed in writing class explanations (Attributes, Constructor, Methods) of classes belonging to different subsystems.
+
+## 11th Meeting (18 November 2018)
+
+### Agenda
+
+-  Finish first iteration of Final Report.
+-  Code the first classes.
+
+### Activities and Contributions
+
+Naisila - Wrote the Game Panel, RushHourFrame and Try class for the game and their explanations. Took care of the format of the final report and uploaded everything on GitHub except Fatbardh's part.
+
+Masna - Wrote the ChooseDifficulty panel class and its explanation.
+
+Talha - Wrote the ChoosePuzzle Panel class and its explanation.
+
+Fatbardh - Wrote the Main Menu Panel class using NetBeans and JavaFxml, along with their explanations for the final report. He uploaded this code on GitHub. Although the others worked on Eclipse, he worked on this since we couldn't decide on this stage which implementation model we were going to follow. Fatbardh was the only one who knew both models so he tried in JavaFxml as well.
+
+Kunduz - Wrote the final report by merging everyone's work.
+
+## 12th Meeting (19 November 2018)
+
+### Agenda
+
+-  Start the slides presentation.
+-  Code the GridPanel.
+-  Code some crucial UI classes.
+-  Code the navigation between the panels.
+
+### Activities and Contributions
+
+All - Decided to leave NetBeans and JavaFxml and continue on Eclipse and Swing because of better familiarity and higher easiness with the latter.
+
+Fatbardh - Took the highest responsibility of writing the code that puts all our entity objects (puzzle, car, square, grid) in one Panel in order to actually play the game. Finished the code and wrote Car and GameGrid classes. Now the cars can properly move in the grid and a classic Rush Hour game is available.
+
+Naisila - Started the slides presentation until the Non-Functional Requirements. Learned how to use JLayeredPane to merge all the panels together and create the code connection between them in order to navigate between game panels.
+
+Masna - Wrote the MyGarage Panel class.
+
+Talha - Updated ChoosePuzzle Panel class.
+
+Kunduz - Wrote the Registration and Main Menu Panel classes.
+
+## 13th Meeting (20 November 2018)
+
+### Agenda
+
+-  Finish the slides presentation.
+-  Finish the remaining part of the code for iteration 1.
+-  Make a game video tutorial and upload it to YouTube.
+-  Divide the presentation work and rehearse the presentation.
+
+### Special for the day!
+
+Chain Coders feel confident about this software version of Rush Hour. We have managed to do a good team job. We feel ready for the first iteration :smile:
+
+### Activities and Contributions
+
+Talha - Wrote the rest of slides presentation, except for NonFunctional Requirements. Made some final changes to ChoosePuzzle Panel class.
+
+Fatbardh - Continued working on the Grid panel class to add functionalities such as game reset, movement count and better car movement. This guy is a real hero.
+
+Kunduz - Wrote the Registration and Main Menu Panel classes. Together with Kunduz, updated the Registration and Main Menu Panel classes. Updated the Game Panel to the new frame dimensions.
+
+Naisila - Merged the made classes in a single Eclipse project. Fixed image path inconsistencies. Wrote the RushHourFrame class which launches the game and adds functionality between the panels. Together with Masna, added Congratulations Label in the win state of the game as well as movement count functionality, based on Fatbardhi's implemented control methods.
+
+Masna - Updated the ChooseDifficulty Panel to the new frame dimensions. Made some final changes to MyGarage Panel. Wrote the non-functional requirements part in the slides presentation. Made the game video tutorial and uploaded it in YouTube. This video can be found at [this part](https://github.com/NaisilaPuka/rushHourByChainCoders#iteration-1-of-the-project).
+
+All - Divided presentation work based on who had done what. This was an easy task since the work has been distributed so far and everyone had their own part to talk about.
