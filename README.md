@@ -21,7 +21,14 @@ limit. This is a level-based game with 4 levels of difficulty and 40 challenges,
 
 The programming language we have decided to use is Java which we will implement on Desktop using JavaFX and GUI.
 
-### Game Tutorial
+### Hardware Version of the Game - Tutorials
 
 https://www.thinkfun.com/products/rush-hour/
 https://youtu.be/HI0rlp7tiZ0
+
+## Iteration 1 of the Project
+
+We finished version 1.0 of the game.
+Check out [this cool YouTube tutorial](https://www.youtube.com/watch?v=mbmSakJnnts).
+Check out [this cool presentation made by Chain Coders](https://docs.google.com/presentation/d/1YYexpBScjx-HPlzynTmQXB8Lhkw0m3CyYwm7uDCFTVI/edit?usp=sharing).
+Enjoy! :heart: We are working on version 2.0.
