@@ -238,3 +238,51 @@ Naisila - Merged the made classes in a single Eclipse project. Fixed image path 
 Masna - Updated the ChooseDifficulty Panel to the new frame dimensions. Made some final changes to MyGarage Panel. Wrote the non-functional requirements part in the slides presentation. Made the game video tutorial and uploaded it in YouTube. This video can be found at [this part](https://github.com/NaisilaPuka/rushHourByChainCoders#iteration-1-of-the-project).
 
 All - Divided presentation work based on who had done what. This was an easy task since the work has been distributed so far and everyone had their own part to talk about.
+
+## 14th Meeting (27 November 2018)
+
+### Agenda
+
+-  Fix the Analysis report based on TA Muhammed Cavusoglu's Feedback.
+
+### Note
+
+For the first time, we held the meeting online, on our WhatsApp group.
+
+### Activities and Contributions
+
+Talha - Updated the Use-Case Diagram based on feedback.
+
+Fatbardh - Updated the Class Diagram based on feedback and merged everything into a single document.
+
+Kunduz - Updated the State and Activity diagram based on TA's feedback as well as Instructor Eray's feedback on the presentation in the first iteration of the project.
+
+Naisila - Updated the functional requirements as well as added some preambles and format stuff based on the feedback.
+
+Masna - Updated the sequence diagrams and added a new one for Game Play based on Instructor Eray's feedback on the presentation in the first iteration of the project.
+
+## 15th Meeting (11 December 2018)
+
+### Agenda
+
+-  Fix the Design report based on TA Muhammed Cavusoglu's Feedback.
+
+### Activities and Contributions
+
+Masna - Fixed the update methods in each class by adding parameters to each of them, and updated the information about class methods accordingly.
+
+Naisila - Added some preambles based on feedback.
+
+All - Couldn't concentrate much. This semester has tired us. We decided to have another, hopefully much more productive meeting the following day.
+
+## 16th Meeting (12 December 2018)
+
+### Agenda
+
+-  Finish fixing the Design report based on TA Muhammed Cavusoglu's Feedback.
+
+### Activities and Contributions
+
+Naisila - Updated the introduction, made a deployment diagram for the game together with its explanation, added the Design Trade-Offs section by also discussing with the group about relevant design trade-off decisions taken. Updated the format accordingly and merged everything into a single document.
+
+Fatbardh - Added the relevant references to our Design Report.
