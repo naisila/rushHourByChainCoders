@@ -46,33 +46,39 @@ public class Car{
 	}
 	
 	
-	public void move( int x, int y) {
-		if(direction == 0) {
-			if(y >= this.y && y < this.y + sideLength && y >= 0 && x >= 0)
-				if(( x<= 240 && size == 2) || ( ( x<= 180 && size == 3)) && y >= 0 && x >= 0)
-					updatePosition( x, this.y);
-		}else if(direction == 1) {
-			if( x >= this.x && x < this.x + sideLength && y >= 0 && x >= 0 )
-				if(( y<= 240 && size == 2) || ( ( y<= 180 && size == 3))&& y >= 0 && x >= 0)
-					updatePosition( this.x, y);
+	public void move( int x, int y, int gridsize) {
+		
+		if(gridsize > 3) {
+			if(direction == 0) {
+				if(y >= this.y && y < this.y + sideLength && y >= 0 && x >= 0)
+					if(( x<= (gridsize-2)*60 && size == 2) || ( ( x<= (gridsize-3)*60 && size == 3)) && y >= 0 && x >= 0)
+						updatePosition( x, this.y);
+			}else if(direction == 1) {
+				if( x >= this.x && x < this.x + sideLength && y >= 0 && x >= 0 )
+					if(( y<= (gridsize-2)*60 && size == 2) || ( ( y<= (gridsize-3)*60 && size == 3))&& y >= 0 && x >= 0)
+						updatePosition( this.x, y);
+			}
+			
 		}
+		
+		
+		
 	}
 	
-	public void normalisePosition(int x, int y) {
+	public void normalisePosition(int x, int y, int gridsize) {
 		if (y % 60 ==0) 
 			if( (x % 60) < 30)
-				this.move( x - (x % 60), y);
+				this.move( x - (x % 60), y, gridsize);
 			else
-				this.move( x + 60 - (x % 60), y);
+				this.move( x + 60 - (x % 60), y, gridsize);
 		
 		if (x % 60 ==0)
 			if( y%60 < 30)
-				this.move(  x, y - (y % 60));
+				this.move(  x, y - (y % 60) , gridsize);
 			else
-				this.move( x , y + 60 - (y % 60));
-			
-		
+				this.move( x , y + 60 - (y % 60), gridsize);
 	}
+	
 	
 	private void updatePosition( int x, int y) {
 		this.x = x;
