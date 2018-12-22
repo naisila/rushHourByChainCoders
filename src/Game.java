@@ -294,6 +294,7 @@ public class Game extends JPanel {
 			this.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {
+					
 					drawPoint = new Point(e.getPoint());
 					pointx = e.getX();
 					pointy = e.getY();
@@ -303,13 +304,14 @@ public class Game extends JPanel {
 							selectedCar = changedCars.get(i);
 						}
 					}
+					if(selectedCar!= null ) {
 					// updates the possible travel distances of the selected car
 					getTravelDistance();
 					// used to calculate movement nr
 					originalCarPositionX = selectedCar.getPosition().get(0);
 					originalCarPositionY = selectedCar.getPosition().get(1);
 					removeOccupied(selectedCar);
-
+					}
 					repaint();
 				}
 			});
@@ -350,6 +352,7 @@ public class Game extends JPanel {
 					frontSquares = 0;
 					for (int i = 0; i < changedCars.size(); i++)
 						setOccupied(changedCars.get(i));
+					
 					// test/////////////////////////////
 					for (int i = 0; i < gridSize * gridSize; i++) {
 						System.out.print(squares.get(i).getOccupied() + " ");
@@ -434,6 +437,7 @@ public class Game extends JPanel {
 		}
 
 		private void getTravelDistance() {
+			if(selectedCar != null){
 			// ArrayList<Integer> distances = new ArrayList<>();
 			int carIndex = 0;
 			int startIndex = 0;
@@ -519,6 +523,7 @@ public class Game extends JPanel {
 			frontSquares = frontSquares * 60;
 			backSquares = backSquares * 60;
 			System.out.println(frontSquares + "  " + backSquares);
+		}
 		}
 
 		private void updatePosition(int x, int y) {
