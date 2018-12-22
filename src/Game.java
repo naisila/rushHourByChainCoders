@@ -1,3 +1,4 @@
+
 package rushHour;
 
 /**
@@ -169,7 +170,8 @@ public class Game extends JPanel {
 		cars
 				.add(new Car(120, 0, 3, 1, "src/rushHour/images/vertical3x1.png"	));
 
-		grid = new GameGrid(cars, 6);
+		grid = new GameGrid(cars, 7);
+		
 		grid.setBounds(270, 110, 360, 360);
 		add(grid);
 
@@ -254,8 +256,8 @@ public class Game extends JPanel {
 
 			squares = new ArrayList<>();
 
-			for (int i = 0; i < 6; i++) {
-				for (int m = 0; m < 6; m++) {
+			for (int i = 0; i < gridSize; i++) {
+				for (int m = 0; m < gridSize; m++) {
 					Square square = new Square(m * playersCar.getLength(), i * playersCar.getLength());
 					squares.add(square);
 				}
@@ -276,7 +278,7 @@ public class Game extends JPanel {
 			backSquares = 0;
 			frontSquares = 0;
 			// set size of the panel
-			this.setPreferredSize(new Dimension(playersCar.getLength() * 6, playersCar.getLength() * 6));
+			this.setPreferredSize(new Dimension(playersCar.getLength() * gridSize, playersCar.getLength() * gridSize));
 			repaint();
 
 			addMouseMotionListener(this);
@@ -311,14 +313,13 @@ public class Game extends JPanel {
 					drawPoint = new Point(e.getPoint());
 					// updates the positions
 					if (selectedCar != null) {
-						selectedCar.normalisePosition(selectedCar.getPosition().get(0),
-								selectedCar.getPosition().get(1));
+						selectedCar.normalisePosition(selectedCar.getPosition().get(0), selectedCar.getPosition().get(1) , gridSize);
 						setOccupied(selectedCar);
 						repaint();
 
 						// test Index///////////////////////////
 						int index = 0;
-						for (int i = 0; i < 36; i++) {
+						for (int i = 0; i < gridSize*gridSize; i++) {
 							if (squares.get(i).hasCoordinate(selectedCar.getPosition().get(0),
 									selectedCar.getPosition().get(1))) {
 								index = i;
@@ -337,8 +338,10 @@ public class Game extends JPanel {
 							solved = true;
 						}
 						
-						Game.this.setM(movementNr);
-						Game.this.setT(solved);
+						System.out.println("solved = " + solved);
+						System.out.println("movementNr = " + movementNr);
+						//Game.this.setM(movementNr);
+						//Game.this.setT(solved);
 						
 					}
 
@@ -349,9 +352,9 @@ public class Game extends JPanel {
 					for (int i = 0; i < changedCars.size(); i++)
 						setOccupied(changedCars.get(i));
 					// test/////////////////////////////
-					for (int i = 0; i < 36; i++) {
+					for (int i = 0; i < gridSize*gridSize; i++) {
 						System.out.print(squares.get(i).getOccupied() + " ");
-						if (((i + 1) % 6) == 0)
+						if (((i + 1) % gridSize) == 0)
 							System.out.println();
 					}
 
@@ -362,10 +365,10 @@ public class Game extends JPanel {
 
 		public void reset() {
 			movementNr = 0;
-			Game.this.setM(movementNr);
+			//Game.this.setM(movementNr);
 			
 			solved = false;
-			Game.this.setT(solved);
+			//Game.this.setT(solved);
 			
 			squares = new ArrayList<>();
 			changedCars = new ArrayList<>();
@@ -382,8 +385,8 @@ public class Game extends JPanel {
 
 			squares = new ArrayList<>();
 
-			for (int i = 0; i < 6; i++) {
-				for (int m = 0; m < 6; m++) {
+			for (int i = 0; i < gridSize; i++) {
+				for (int m = 0; m < gridSize; m++) {
 					Square square = new Square(m * playersCar.getLength(), i * playersCar.getLength());
 					squares.add(square);
 				}
@@ -404,39 +407,39 @@ public class Game extends JPanel {
 			backSquares = 0;
 			frontSquares = 0;
 
-			for (int i = 0; i < 36; i++) {
+			for (int i = 0; i < gridSize*gridSize; i++) {
 				if (squares.get(i).hasCoordinate(selectedCar.getPosition().get(0), selectedCar.getPosition().get(1))) {
 					carIndex = i;
 				}
 			}
-			startIndex = carIndex % 6;
+			startIndex = carIndex % gridSize;
 
 			if (selectedCar.getDirection() == 0) {
 				// horizontal car
 				if (selectedCar.getSize() == 2) {
 					// car with size 2
 					int i = 1;
-					while ((carIndex - i + 1) % 6 != 0 && !squares.get(carIndex - i).getOccupied()) {
+					while ((carIndex - i + 1) % gridSize != 0 && !squares.get(carIndex - i).getOccupied()) {
 						backSquares++;
 						i++;
 					}
 					// bc car is of size 2
 					int j = 2;
-					while ((carIndex + j) % 6 != 0 && !squares.get(carIndex + j).getOccupied()) {
+					while ((carIndex + j) % gridSize != 0 && !squares.get(carIndex + j).getOccupied()) {
 						frontSquares++;
 						j++;
 					}
 				} else if (selectedCar.getSize() == 3) {
 					// car with size 3
 					int i = 1;
-					while ((carIndex - i + 1) % 6 != 0 && !squares.get(carIndex - i).getOccupied()) {
+					while ((carIndex - i + 1) % gridSize != 0 && !squares.get(carIndex - i).getOccupied()) {
 						backSquares++;
 						i++;
 
 					}
 					// bc car is of size 2
 					int j = 3;
-					while ((carIndex + j) % 6 != 0 && !squares.get(carIndex + j).getOccupied()) {
+					while ((carIndex + j) % gridSize != 0 && !squares.get(carIndex + j).getOccupied()) {
 						frontSquares++;
 						j++;
 					}
@@ -446,32 +449,32 @@ public class Game extends JPanel {
 				// vertical car
 				if (selectedCar.getSize() == 2) {
 					// car with size 2
-					int i = 6;
+					int i = gridSize;
 					while ((carIndex - i) >= 0 && !squares.get(carIndex - i).getOccupied()) {
-						i += 6;
+						i += gridSize;
 						backSquares++;
 					}
 
-					int j = 12;
-					while ((carIndex + j) < 36 && !squares.get(carIndex + j).getOccupied()) {
+					int j = gridSize*2;
+					while ((carIndex + j) < gridSize*gridSize && !squares.get(carIndex + j).getOccupied()) {
 						frontSquares++;
-						j += 6;
+						j += gridSize;
 
 					}
 
 				} else if (selectedCar.getSize() == 3) {
 					// car with size 3
-					int i = 6;
+					int i = gridSize;
 					while ((carIndex - i) >= 0 && !squares.get(carIndex - i).getOccupied()) {
-						i += 6;
+						i += gridSize;
 						backSquares++;
 						System.out.println("1");
 					}
 
-					int j = 18;
-					while ((carIndex + j) < 36 && !squares.get(carIndex + j).getOccupied()) {
+					int j = gridSize*3;
+					while ((carIndex + j) < gridSize*gridSize && !squares.get(carIndex + j).getOccupied()) {
 						frontSquares++;
-						j += 6;
+						j += gridSize;
 						System.out.println("2");
 					}
 				}
@@ -489,7 +492,7 @@ public class Game extends JPanel {
 			// it is important to remove the squares and then add them after the
 			removeOccupied(selectedCar);
 			System.out.println(" updateposition-----------------------------------------------");
-			selectedCar.move(x, y);
+			selectedCar.move(x, y, gridSize);
 		}
 
 		private void removeOccupied(Car car) {
@@ -498,7 +501,7 @@ public class Game extends JPanel {
 			int index = 0;
 
 			// set the first square to occupied
-			for (int i = 0; i < 36; i++) {
+			for (int i = 0; i < gridSize*gridSize; i++) {
 				if (squares.get(i).hasCoordinate(x, y)) {
 					squares.get(i).setOccupied(false);
 					index = i;
@@ -513,10 +516,10 @@ public class Game extends JPanel {
 				}
 			}
 			if (car.getDirection() == 1) {
-				squares.get(index + 6).setOccupied(false);
+				squares.get(index + gridSize).setOccupied(false);
 				if (car.getSize() == 3)
 					// if the car has 3 squares we update the third one
-					squares.get(index + 12).setOccupied(false);
+					squares.get(index + gridSize*2).setOccupied(false);
 			}
 
 		}
@@ -527,7 +530,7 @@ public class Game extends JPanel {
 			int index = 0;
 
 			// set the first square to occupied
-			for (int i = 0; i < 36; i++) {
+			for (int i = 0; i < gridSize*gridSize; i++) {
 				if (squares.get(i).hasCoordinate(x, y)) {
 					squares.get(i).setOccupied(true);
 					index = i;
@@ -541,10 +544,10 @@ public class Game extends JPanel {
 					squares.get(index + 2).setOccupied(true);
 			}
 			if (car.getDirection() == 1) {
-				squares.get(index + 6).setOccupied(true);
+				squares.get(index + gridSize).setOccupied(true);
 				if (car.getSize() == 3)
 					// if the car has 3 squares we update the third one
-					squares.get(index + 12).setOccupied(true);
+					squares.get(index + gridSize*2).setOccupied(true);
 			}
 
 		}
@@ -553,7 +556,7 @@ public class Game extends JPanel {
 			super.paintComponent(g);
 			Graphics2D g2d = (Graphics2D) g.create();
 			// drow the rectangles
-			for (int i = 0; i < 36; i++) {
+			for (int i = 0; i < gridSize*gridSize; i++) {
 				g2d.drawRect(squares.get(i).getX(), squares.get(i).getY(), playersCar.getLength(),
 						playersCar.getLength());
 			}
