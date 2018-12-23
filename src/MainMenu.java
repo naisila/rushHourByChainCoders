@@ -23,11 +23,20 @@ public class MainMenu extends JPanel {
 	private static final long serialVersionUID = 1L;
 	private JButton play;
 	private JButton cust;
+	private JButton inst;
+	private JButton quit;
+	private JTextArea coinNum;
+	private JLabel avatar;
+	private JTextArea name;
+	private FileManagementSystem fms;
+	private User u;
 
 	/**
 	 * Create the panel.
 	 */
-	public MainMenu() {
+	public MainMenu(FileManagementSystem fmsi) {
+		fms = fmsi;
+		u = fmsi.getUserData();
 		setLayout(null);
 
 		JLabel rush = new JLabel("");
@@ -42,27 +51,27 @@ public class MainMenu extends JPanel {
 				Image.SCALE_DEFAULT)));
 		add(byCC);
 
-		JLabel avatar = new JLabel("");
+		avatar = new JLabel("");
 		avatar.setBounds(619, 11, 97, 89);
-		avatar.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/Avatar.png").getImage().getScaledInstance(90,
-				90, Image.SCALE_DEFAULT)));
+		avatar.setIcon(
+				new ImageIcon(new ImageIcon(u.getAvatar()).getImage().getScaledInstance(90, 90, Image.SCALE_DEFAULT)));
 		add(avatar);
 
-		JTextArea coinNum = new JTextArea();
+		coinNum = new JTextArea();
 		coinNum.setBackground(new Color(217, 102, 102));
 		coinNum.setFont(new Font("Monospaced", Font.BOLD, 11));
-		coinNum.setText("0");
+		coinNum.setText(u.getCoins() + "");
 		coinNum.setBounds(629, 111, 30, 20);
 		coinNum.setEditable(false);
 		add(coinNum);
 
-		JTextArea txtrJohn = new JTextArea();
-		txtrJohn.setBackground(new Color(217, 102, 102));
-		txtrJohn.setFont(new Font("Monospaced", Font.BOLD, 11));
-		txtrJohn.setText("JOHN");
-		txtrJohn.setBounds(681, 111, 80, 20);
-		txtrJohn.setEditable(false);
-		add(txtrJohn);
+		name = new JTextArea();
+		name.setBackground(new Color(217, 102, 102));
+		name.setFont(new Font("Monospaced", Font.BOLD, 11));
+		name.setText(u.getName());
+		name.setBounds(681, 111, 80, 20);
+		name.setEditable(false);
+		add(name);
 
 		JLabel coin = new JLabel("");
 		coin.setBounds(666, 118, 70, 60);
@@ -93,7 +102,7 @@ public class MainMenu extends JPanel {
 		play.setHorizontalAlignment(SwingConstants.RIGHT);
 		add(play);
 
-		JButton inst = new JButton("");
+		inst = new JButton("");
 		inst.setFont(new Font("Tahoma", Font.BOLD, 15));
 		inst.setText("INSTRUCTIONS   ");
 		inst.setBackground(new Color(101, 140, 217));
@@ -115,7 +124,7 @@ public class MainMenu extends JPanel {
 		cust.setHorizontalAlignment(SwingConstants.RIGHT);
 		add(cust);
 
-		JButton quit = new JButton("");
+		quit = new JButton("");
 		quit.setFont(new Font("Tahoma", Font.BOLD, 15));
 		quit.setText("QUIT                       ");
 		quit.setBackground(new Color(101, 140, 217));
@@ -128,7 +137,7 @@ public class MainMenu extends JPanel {
 
 		JLabel bg = new JLabel("");
 		bg.setBounds(0, 0, 778, 566);
-		bg.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/bg.jpg").getImage().getScaledInstance(778, 566,
+		bg.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/poster.jpg").getImage().getScaledInstance(778, 566,
 				Image.SCALE_DEFAULT)));
 		add(bg);
 	}
@@ -139,5 +148,21 @@ public class MainMenu extends JPanel {
 
 	public void setMLCust(MouseAdapter madpt) {
 		cust.addMouseListener(madpt);
+	}
+
+	public void setMLInst(MouseAdapter madpt) {
+		inst.addMouseListener(madpt);
+	}
+
+	public void setMLQuit(MouseAdapter madpt) {
+		quit.addMouseListener(madpt);
+	}
+
+	public void update() {
+		u = fms.getUserData();
+		coinNum.setText(u.getCoins() + "");
+		avatar.setIcon(
+				new ImageIcon(new ImageIcon(u.getAvatar()).getImage().getScaledInstance(90, 90, Image.SCALE_DEFAULT)));
+		name.setText(u.getName());
 	}
 }

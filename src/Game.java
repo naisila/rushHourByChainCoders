@@ -1,4 +1,3 @@
-
 package rushHour;
 
 /**
@@ -7,6 +6,7 @@ package rushHour;
  * @version__18/11/2018
  */
 import javax.swing.JPanel;
+import javax.swing.SwingConstants;
 import javax.swing.JLabel;
 import javax.swing.ImageIcon;
 import java.awt.*;
@@ -70,11 +70,21 @@ public class Game extends JPanel {
 	JLabel go;
 
 	JLabel name;
+	private FileManagementSystem fms;
+	private User u;
+	private int diff;
+	private int puzz;
+	private ArrayList<Car> cars;
+	ArrayList<Integer> puzzleConf;
 
 	/**
 	 * Create the panel.
 	 */
-	public Game() {
+	public Game(FileManagementSystem fmsi, int diffic, int puzzNo) {
+		fms = fmsi;
+		diff = diffic;
+		puzz = puzzNo;
+		u = fms.getUserData();
 		setBackground(new Color(255, 250, 205));
 		setLayout(null);
 
@@ -165,39 +175,48 @@ public class Game extends JPanel {
 		add(go);
 
 		back = new JLabel("");
-		back.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/back.png").getImage().getScaledInstance(150, 80,
+		back.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/back.png").getImage().getScaledInstance(120, 65,
 				Image.SCALE_DEFAULT)));
-		back.setBounds(3, 3, 150, 80);
+		back.setBounds(0, 0, 156, 65);
+		back.setHorizontalAlignment(SwingConstants.CENTER);
 		add(back);
 
 		// here we create and initialise the grid cars
-		ArrayList<Car> cars = new ArrayList<>();
+		cars = fms.getPuzzleConfig(diff, puzz);
+		puzzleConf = fms.getPuzzleStats(diff, puzz);
+//
+//		cars.add(new Car(0, 120, 2, 0, "src/rushHour/images/players-car.png"));
+//		cars.add(new Car(0, 0, 2, 0, "src/rushHour/images/horizontal2x1.png"));
+//		cars.add(new Car(120, 180, 3, 0, "src/rushHour/images/horizontal3x1.png"));
+//		cars.add(new Car(0, 180, 2, 1, "src/rushHour/images/vertical2x1.png"));
+//		cars.add(new Car(120, 0, 3, 1, "src/rushHour/images/vertical3x1.png"));
 
-		cars.add(new Car(0, 120, 2, 0, "src/rushHour/images/players-car.png"));
-		cars.add(new Car(0, 0, 2, 0, "src/rushHour/images/horizontal2x1.png"));
-		cars.add(new Car(120, 180, 3, 0, "src/rushHour/images/horizontal3x1.png"));
-		cars.add(new Car(0, 180, 2, 1, "src/rushHour/images/vertical2x1.png"));
-		cars.add(new Car(120, 0, 3, 1, "src/rushHour/images/vertical3x1.png"));
-
-		grid = new GameGrid(cars, 6);
-		grid.setBounds(270, 110, 360, 360);
+		grid = new GameGrid(cars, puzzleConf.get(0));
+		grid.setBounds(270, 110, 60*puzzleConf.get(0), 60*puzzleConf.get(0));
 		add(grid);
 
 		jam = new JLabel("");
-		jam.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/jam.jpg").getImage().getScaledInstance(360, 360,
+		jam.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/jam.jpg").getImage().getScaledInstance(60*puzzleConf.get(0), 60*puzzleConf.get(0),
 				Image.SCALE_DEFAULT)));
-		jam.setBounds(270, 110, 360, 360);
+		jam.setBounds(270, 110, 60*puzzleConf.get(0), 60*puzzleConf.get(0));
 		add(jam);
 
 		exit = new JLabel("");
 		exit.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/exit.png").getImage().getScaledInstance(45, 60,
 				Image.SCALE_DEFAULT)));
-		exit.setBounds(620, 228, 45, 60);
+		exit.setBounds(620 + (puzzleConf.get(0) - 6) * 60, 228, 45, 60);
 		add(exit);
 
 		bg = new JLabel("");
-		bg.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/bg.jpg").getImage().getScaledInstance(778, 566,
+		if(diff == 0)
+			bg.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/labg.jpg").getImage().getScaledInstance(778, 566,
 				Image.SCALE_DEFAULT)));
+		else if(diff == 1)
+			bg.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/chinabg.jpg").getImage().getScaledInstance(778, 566,
+					Image.SCALE_DEFAULT)));
+		else
+			bg.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/parisbg.jpg").getImage().getScaledInstance(778, 566,
+					Image.SCALE_DEFAULT)));
 		bg.setBounds(0, 0, 778, 566);
 		add(bg);
 	}
@@ -228,6 +247,7 @@ public class Game extends JPanel {
 		private ArrayList<Car> initialCars;
 		private ArrayList<Square> squares;
 		private int gridSize;
+		private boolean exploded;
 
 		private Point drawPoint;
 
@@ -251,13 +271,13 @@ public class Game extends JPanel {
 		boolean poped;
 
 		public GameGrid(ArrayList<Car> initialCars, int gridSize) {
+			setOpaque(false);
+			exploded = false;
 
 			this.initialCars = initialCars;
 			this.gridSize = gridSize;
 
 			movements = new Stack<>();
-
-			
 
 			changedCars = new ArrayList<>();
 			for (int i = 0; i < initialCars.size(); i++) {
@@ -345,6 +365,22 @@ public class Game extends JPanel {
 
 						if (changedCars.get(0).getPosition().get(0) == (gridSize - 2) * 60) {
 							solved = true;
+							if (Game.this.puzzleConf.get(1) == 0) {
+								int stars = 0;
+								if (Game.this.puzzleConf.get(4) >= movementNr)
+									stars = 3;
+								else if (Game.this.puzzleConf.get(4) + 3 >= movementNr)
+									stars = 2;
+								else if (Game.this.puzzleConf.get(4) + 6 >= movementNr)
+									stars = 1;
+								if (exploded && stars > 0)
+									stars--;
+								fms.updatePuzzleStats(Game.this.diff, Game.this.puzz, 1, stars, 0, movementNr);
+								int coins = u.getCoins() + 1500 + (1000 * stars);
+								fms.updateCoins(coins + "");
+								int allStars = u.getStars() + stars;
+								fms.updateStars( allStars + "");
+							}
 						}
 
 						leastSelectedCar = selectedCar;
@@ -419,7 +455,7 @@ public class Game extends JPanel {
 					carConfig.add(new Car(temp.getPosition().get(0), temp.getPosition().get(1), temp.getSize(),
 							temp.getDirection(), temp.getUrl()));
 				}
-				
+
 				poped = false;
 				movements.push(carConfig);
 			}
@@ -427,7 +463,7 @@ public class Game extends JPanel {
 		}
 
 		private void undo() {
-			if (!movements.empty() && movements!=null) {
+			if (!movements.empty() && movements != null) {
 				if (!poped) {
 					movements.pop();
 					poped = true;
@@ -462,14 +498,14 @@ public class Game extends JPanel {
 
 		private void explode() {
 			if (leastSelectedCar != null && leastSelectedCar != playersCar) {
-				
+
 				changedCars.remove(leastSelectedCar);
-				
+
 				movementNr++;
 				leastSelectedCar = null;
-				
-				poped=true;
-				
+
+				poped = true;
+
 				pushConfiguration();
 
 				squares = new ArrayList<>();

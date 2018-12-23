@@ -1,9 +1,7 @@
 package rushHour;
-
 /**
  * __Square
- * 
- * @author __Fatbardh 
+ * @author __Fatbardh
  * @version__18/11/2018
  */
 public class Square {

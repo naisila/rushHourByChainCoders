@@ -1,7 +1,7 @@
 package rushHour;
 
 /**
- * __Garage Panel of the game.
+ * __Game Panel of the game.
  * @author __Masna
  * @version__18/11/2018
  */
@@ -33,14 +33,15 @@ public class GaragePanel extends JPanel {
 	public GaragePanel() {
 		setLayout(null);
 
-		Image img = new ImageIcon("src/rushHour/images/back.png").getImage().getScaledInstance(120, 45,
+		Image img = new ImageIcon("src/rushHour/images/back.png").getImage().getScaledInstance(120, 65,
 				Image.SCALE_DEFAULT);
 		Image img1 = new ImageIcon("src/rushHour/images/my garage.png").getImage().getScaledInstance(250, 50,
 				Image.SCALE_DEFAULT);
 
 		back = new JLabel("");
 		back.setIcon(new ImageIcon(img));
-		back.setBounds(10, 11, 120, 45);
+		back.setHorizontalAlignment(SwingConstants.CENTER);
+		back.setBounds(0, 0, 156, 65);
 		add(back);
 
 		JLabel lblNewLabel_1 = new JLabel("");
@@ -69,7 +70,7 @@ public class GaragePanel extends JPanel {
 		add(label_1);
 
 		JLabel bg = new JLabel("");
-		bg.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/bg.jpg").getImage().getScaledInstance(800, 800,
+		bg.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/garage.jpg").getImage().getScaledInstance(800, 800,
 				Image.SCALE_DEFAULT)));
 		bg.setBounds(0, 0, 975, 571);
 		add(bg);
@@ -334,7 +335,6 @@ public class GaragePanel extends JPanel {
 
 		return panel;
 	}
-
 	public void setMLBack(MouseAdapter madpt) {
 		back.addMouseListener(madpt);
 	}

@@ -11,6 +11,9 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import javax.swing.JLayeredPane;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 public class RushHourFrame extends JFrame {
 
 	/**
@@ -25,6 +28,9 @@ public class RushHourFrame extends JFrame {
 	private GaragePanel garage;
 	private MainMenu menu;
 	private RegistrationPanel reg;
+	private CustomizePanel cust;
+	private Instructions inst;
+	private FileManagementSystem fms;
 	private int k;
 
 	/**
@@ -56,28 +62,38 @@ public class RushHourFrame extends JFrame {
 		layers = new JLayeredPane();
 		setContentPane(layers);
 
-		game = new Game();
+		fms = new FileManagementSystem();
+		//game = new Game(fms, 0, 0);
 		garage = new GaragePanel();
-		choosePuzz = new ChoosePuzzle();
-		chooseDiff = new ChooseDifficulty();
-		menu = new MainMenu();
-		reg = new RegistrationPanel();
+		choosePuzz = new ChoosePuzzle(fms);
+		chooseDiff = new ChooseDifficulty(fms);
+		menu = new MainMenu(fms);
+		reg = new RegistrationPanel(fms);
+		cust = new CustomizePanel();
+		inst = new Instructions();
 
-		layers.add(game, new Integer(0));
-		layers.add(garage, new Integer(1));
-		layers.add(choosePuzz, new Integer(2));
-		layers.add(chooseDiff, new Integer(3));
-		layers.add(menu, new Integer(4));
-		layers.add(reg, new Integer(5));
+		//layers.add(game, new Integer(1));
+		layers.add(garage, new Integer(2));
+		layers.add(cust, new Integer(3));
+		layers.add(choosePuzz, new Integer(4));
+		layers.add(chooseDiff, new Integer(5));
+		layers.add(inst, new Integer(6));
+		layers.add(menu, new Integer(7));
+		if (!fms.userFileExists())
+			layers.add(reg, new Integer(8));
+		else
+			layers.add(reg, new Integer(0));
 
-		k = 5;
+		k = 8;
 
-		game.setBounds(0, 0, 778, 566);
+		//game.setBounds(0, 0, 778, 566);
 		garage.setBounds(0, 0, 778, 566);
 		choosePuzz.setBounds(0, 0, 778, 566);
 		chooseDiff.setBounds(0, 0, 778, 566);
 		menu.setBounds(0, 0, 778, 566);
 		reg.setBounds(0, 0, 778, 566);
+		cust.setBounds(0, 0, 778, 566);
+		inst.setBounds(0, 0, 778, 566);
 
 		reg.setMLCar(new MouseAdapter() {
 			@Override
@@ -89,6 +105,7 @@ public class RushHourFrame extends JFrame {
 		menu.setMLPlay(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
+				chooseDiff.update();
 				layers.setLayer(chooseDiff, RushHourFrame.this.getK());
 			}
 		});
@@ -96,13 +113,16 @@ public class RushHourFrame extends JFrame {
 		chooseDiff.setMLBack(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
+				menu.update();
 				layers.setLayer(menu, RushHourFrame.this.getK());
 			}
 		});
 
-		chooseDiff.setMLBeg(new MouseAdapter() {
+		chooseDiff.setMLBeg(new ActionListener() {
 			@Override
-			public void mousePressed(MouseEvent e) {
+			public void actionPerformed(ActionEvent e) {
+				choosePuzz.setDiff(chooseDiff.getDiff());
+				choosePuzz.update();
 				layers.setLayer(choosePuzz, RushHourFrame.this.getK());
 			}
 		});
@@ -110,6 +130,7 @@ public class RushHourFrame extends JFrame {
 		choosePuzz.setMLBack(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
+				chooseDiff.update();
 				layers.setLayer(chooseDiff, RushHourFrame.this.getK());
 			}
 		});
@@ -117,30 +138,70 @@ public class RushHourFrame extends JFrame {
 		choosePuzz.setMLPuzz(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				layers.setLayer(game, RushHourFrame.this.getK());
-			}
-		});
-
-		game.setMLBack(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				layers.setLayer(choosePuzz, RushHourFrame.this.getK());
+				game = new Game(fms, chooseDiff.getDiff(), choosePuzz.getPuzz());
+				game.setBounds(0, 0, 778, 566);
+				layers.add(game, new Integer(RushHourFrame.this.getK()));
+				game.setMLBack(new MouseAdapter() {
+				@Override
+				public void mousePressed(MouseEvent e) {
+					choosePuzz.update();
+					layers.setLayer(choosePuzz, RushHourFrame.this.getK());
+				}
+			});
 			}
 		});
 
 		menu.setMLCust(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				layers.setLayer(garage, RushHourFrame.this.getK());
+				layers.setLayer(cust, RushHourFrame.this.getK());
 			}
 		});
 
 		garage.setMLBack(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
+				layers.setLayer(cust, RushHourFrame.this.getK());
+			}
+		});
+
+		cust.setGoGarage(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				layers.setLayer(garage, RushHourFrame.this.getK());
+			}
+		});
+
+		cust.setMLBack(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				menu.update();
 				layers.setLayer(menu, RushHourFrame.this.getK());
 			}
 		});
+
+		menu.setMLInst(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				layers.setLayer(inst, RushHourFrame.this.getK());
+			}
+		});
+
+		inst.setMLBack(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				menu.update();
+				layers.setLayer(menu, RushHourFrame.this.getK());
+			}
+		});
+
+		menu.setMLQuit(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				System.exit(0);
+			}
+		});
+
 	}
 
 	public int getK() {
