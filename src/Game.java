@@ -257,7 +257,7 @@ public class Game extends JPanel {
 
 			movements = new Stack<>();
 
-			pushConfiguration();
+			
 
 			changedCars = new ArrayList<>();
 			for (int i = 0; i < initialCars.size(); i++) {
@@ -283,6 +283,7 @@ public class Game extends JPanel {
 				setOccupied(changedCars.get(i));
 
 			// reset variables
+			pushConfiguration();
 			solved = false;
 
 			movementNr = 0;
@@ -404,6 +405,7 @@ public class Game extends JPanel {
 			// update the occupied squares
 			for (int i = 0; i < changedCars.size(); i++)
 				setOccupied(changedCars.get(i));
+			pushConfiguration();
 			repaint();
 			System.out.println(changedCars.get(0).getPosition().get(0));
 		}
@@ -417,14 +419,15 @@ public class Game extends JPanel {
 					carConfig.add(new Car(temp.getPosition().get(0), temp.getPosition().get(1), temp.getSize(),
 							temp.getDirection(), temp.getUrl()));
 				}
-
+				
+				poped = false;
 				movements.push(carConfig);
 			}
 
 		}
 
 		private void undo() {
-			if (!movements.empty()) {
+			if (!movements.empty() && movements!=null) {
 				if (!poped) {
 					movements.pop();
 					poped = true;
@@ -432,6 +435,7 @@ public class Game extends JPanel {
 				if (poped && movementNr > 0) {
 					movementNr--;
 					changedCars = movements.pop();
+					playersCar = changedCars.get(0);
 
 				}
 
@@ -458,13 +462,14 @@ public class Game extends JPanel {
 
 		private void explode() {
 			if (leastSelectedCar != null && leastSelectedCar != playersCar) {
+				
 				changedCars.remove(leastSelectedCar);
-				for (int i = 0; i < changedCars.size(); i++) {
-					setOccupied(changedCars.get(i));
-					System.out.println(changedCars.get(i).getUrl());
-				}
+				
 				movementNr++;
 				leastSelectedCar = null;
+				
+				poped=true;
+				
 				pushConfiguration();
 
 				squares = new ArrayList<>();
