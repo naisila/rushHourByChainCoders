@@ -142,6 +142,12 @@ public class Game extends JPanel {
 		puzzle.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/puzzle2.png").getImage().getScaledInstance(170,
 				80, Image.SCALE_DEFAULT)));
 		puzzle.setBounds(30, 230, 170, 80);
+		puzzle.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mousePressed(MouseEvent e) {
+				grid.explode();
+			}
+		});
 		add(puzzle);
 
 		name = new JLabel("MOVES: 0");
@@ -227,6 +233,7 @@ public class Game extends JPanel {
 
 		private Car playersCar;
 		private Car selectedCar;
+		private Car leastSelectedCar;
 		// puzzle components
 		private boolean solved;
 		private int movementNr;
@@ -241,7 +248,6 @@ public class Game extends JPanel {
 
 		// stack implementation
 		private Stack<ArrayList<Car>> movements;
-
 		boolean poped;
 
 		public GameGrid(ArrayList<Car> initialCars, int gridSize) {
@@ -294,7 +300,7 @@ public class Game extends JPanel {
 			this.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {
-					
+
 					drawPoint = new Point(e.getPoint());
 					pointx = e.getX();
 					pointy = e.getY();
@@ -304,13 +310,13 @@ public class Game extends JPanel {
 							selectedCar = changedCars.get(i);
 						}
 					}
-					if(selectedCar!= null ) {
-					// updates the possible travel distances of the selected car
-					getTravelDistance();
-					// used to calculate movement nr
-					originalCarPositionX = selectedCar.getPosition().get(0);
-					originalCarPositionY = selectedCar.getPosition().get(1);
-					removeOccupied(selectedCar);
+					if (selectedCar != null) {
+						// updates the possible travel distances of the selected car
+						getTravelDistance();
+						// used to calculate movement nr
+						originalCarPositionX = selectedCar.getPosition().get(0);
+						originalCarPositionY = selectedCar.getPosition().get(1);
+						removeOccupied(selectedCar);
 					}
 					repaint();
 				}
@@ -340,6 +346,8 @@ public class Game extends JPanel {
 							solved = true;
 						}
 
+						leastSelectedCar = selectedCar;
+
 						System.out.println("solved = " + solved);
 						System.out.println("movementNr = " + movementNr);
 						repaint();
@@ -352,7 +360,7 @@ public class Game extends JPanel {
 					frontSquares = 0;
 					for (int i = 0; i < changedCars.size(); i++)
 						setOccupied(changedCars.get(i));
-					
+
 					// test/////////////////////////////
 					for (int i = 0; i < gridSize * gridSize; i++) {
 						System.out.print(squares.get(i).getOccupied() + " ");
@@ -409,7 +417,7 @@ public class Game extends JPanel {
 					carConfig.add(new Car(temp.getPosition().get(0), temp.getPosition().get(1), temp.getSize(),
 							temp.getDirection(), temp.getUrl()));
 				}
-				
+
 				movements.push(carConfig);
 			}
 
@@ -421,12 +429,24 @@ public class Game extends JPanel {
 					movements.pop();
 					poped = true;
 				}
-				if (poped && movementNr >0) {
+				if (poped && movementNr > 0) {
 					movementNr--;
 					changedCars = movements.pop();
-					for (int i = 0; i < changedCars.size(); i++)
-						setOccupied(changedCars.get(i));
+
 				}
+
+				squares = new ArrayList<>();
+
+				for (int i = 0; i < gridSize; i++) {
+					for (int m = 0; m < gridSize; m++) {
+						Square square = new Square(m * playersCar.getLength(), i * playersCar.getLength());
+						squares.add(square);
+					}
+
+				}
+
+				for (int i = 0; i < changedCars.size(); i++)
+					setOccupied(changedCars.get(i));
 
 				repaint();
 			} else {
@@ -436,94 +456,123 @@ public class Game extends JPanel {
 
 		}
 
-		private void getTravelDistance() {
-			if(selectedCar != null){
-			// ArrayList<Integer> distances = new ArrayList<>();
-			int carIndex = 0;
-			int startIndex = 0;
-			backSquares = 0;
-			frontSquares = 0;
-
-			for (int i = 0; i < gridSize * gridSize; i++) {
-				if (squares.get(i).hasCoordinate(selectedCar.getPosition().get(0), selectedCar.getPosition().get(1))) {
-					carIndex = i;
+		private void explode() {
+			if (leastSelectedCar != null && leastSelectedCar != playersCar) {
+				changedCars.remove(leastSelectedCar);
+				for (int i = 0; i < changedCars.size(); i++) {
+					setOccupied(changedCars.get(i));
+					System.out.println(changedCars.get(i).getUrl());
 				}
+				movementNr++;
+				leastSelectedCar = null;
+				pushConfiguration();
+
+				squares = new ArrayList<>();
+
+				for (int i = 0; i < gridSize; i++) {
+					for (int m = 0; m < gridSize; m++) {
+						Square square = new Square(m * playersCar.getLength(), i * playersCar.getLength());
+						squares.add(square);
+					}
+
+				}
+
+				for (int i = 0; i < changedCars.size(); i++)
+					setOccupied(changedCars.get(i));
+
 			}
-			startIndex = carIndex % gridSize;
-
-			if (selectedCar.getDirection() == 0) {
-				// horizontal car
-				if (selectedCar.getSize() == 2) {
-					// car with size 2
-					int i = 1;
-					while ((carIndex - i + 1) % gridSize != 0 && !squares.get(carIndex - i).getOccupied()) {
-						backSquares++;
-						i++;
-					}
-					// bc car is of size 2
-					int j = 2;
-					while ((carIndex + j) % gridSize != 0 && !squares.get(carIndex + j).getOccupied()) {
-						frontSquares++;
-						j++;
-					}
-				} else if (selectedCar.getSize() == 3) {
-					// car with size 3
-					int i = 1;
-					while ((carIndex - i + 1) % gridSize != 0 && !squares.get(carIndex - i).getOccupied()) {
-						backSquares++;
-						i++;
-
-					}
-					// bc car is of size 2
-					int j = 3;
-					while ((carIndex + j) % gridSize != 0 && !squares.get(carIndex + j).getOccupied()) {
-						frontSquares++;
-						j++;
-					}
-				}
-
-			} else if (selectedCar.getDirection() == 1) {
-				// vertical car
-				if (selectedCar.getSize() == 2) {
-					// car with size 2
-					int i = gridSize;
-					while ((carIndex - i) >= 0 && !squares.get(carIndex - i).getOccupied()) {
-						i += gridSize;
-						backSquares++;
-					}
-
-					int j = gridSize * 2;
-					while ((carIndex + j) < gridSize * gridSize && !squares.get(carIndex + j).getOccupied()) {
-						frontSquares++;
-						j += gridSize;
-
-					}
-
-				} else if (selectedCar.getSize() == 3) {
-					// car with size 3
-					int i = gridSize;
-					while ((carIndex - i) >= 0 && !squares.get(carIndex - i).getOccupied()) {
-						i += gridSize;
-						backSquares++;
-						System.out.println("1");
-					}
-
-					int j = gridSize * 3;
-					while ((carIndex + j) < gridSize * gridSize && !squares.get(carIndex + j).getOccupied()) {
-						frontSquares++;
-						j += gridSize;
-						System.out.println("2");
-					}
-				}
-			}
-
-			// right down are in frontSquares
-			// left Up are in backSquares
-			// returns possible distance to travel
-			frontSquares = frontSquares * 60;
-			backSquares = backSquares * 60;
-			System.out.println(frontSquares + "  " + backSquares);
+			repaint();
 		}
+
+		private void getTravelDistance() {
+			if (selectedCar != null) {
+				// ArrayList<Integer> distances = new ArrayList<>();
+				int carIndex = 0;
+				int startIndex = 0;
+				backSquares = 0;
+				frontSquares = 0;
+
+				for (int i = 0; i < gridSize * gridSize; i++) {
+					if (squares.get(i).hasCoordinate(selectedCar.getPosition().get(0),
+							selectedCar.getPosition().get(1))) {
+						carIndex = i;
+					}
+				}
+				startIndex = carIndex % gridSize;
+
+				if (selectedCar.getDirection() == 0) {
+					// horizontal car
+					if (selectedCar.getSize() == 2) {
+						// car with size 2
+						int i = 1;
+						while ((carIndex - i + 1) % gridSize != 0 && !squares.get(carIndex - i).getOccupied()) {
+							backSquares++;
+							i++;
+						}
+						// bc car is of size 2
+						int j = 2;
+						while ((carIndex + j) % gridSize != 0 && !squares.get(carIndex + j).getOccupied()) {
+							frontSquares++;
+							j++;
+						}
+					} else if (selectedCar.getSize() == 3) {
+						// car with size 3
+						int i = 1;
+						while ((carIndex - i + 1) % gridSize != 0 && !squares.get(carIndex - i).getOccupied()) {
+							backSquares++;
+							i++;
+
+						}
+						// bc car is of size 2
+						int j = 3;
+						while ((carIndex + j) % gridSize != 0 && !squares.get(carIndex + j).getOccupied()) {
+							frontSquares++;
+							j++;
+						}
+					}
+
+				} else if (selectedCar.getDirection() == 1) {
+					// vertical car
+					if (selectedCar.getSize() == 2) {
+						// car with size 2
+						int i = gridSize;
+						while ((carIndex - i) >= 0 && !squares.get(carIndex - i).getOccupied()) {
+							i += gridSize;
+							backSquares++;
+						}
+
+						int j = gridSize * 2;
+						while ((carIndex + j) < gridSize * gridSize && !squares.get(carIndex + j).getOccupied()) {
+							frontSquares++;
+							j += gridSize;
+
+						}
+
+					} else if (selectedCar.getSize() == 3) {
+						// car with size 3
+						int i = gridSize;
+						while ((carIndex - i) >= 0 && !squares.get(carIndex - i).getOccupied()) {
+							i += gridSize;
+							backSquares++;
+							System.out.println("1");
+						}
+
+						int j = gridSize * 3;
+						while ((carIndex + j) < gridSize * gridSize && !squares.get(carIndex + j).getOccupied()) {
+							frontSquares++;
+							j += gridSize;
+							System.out.println("2");
+						}
+					}
+				}
+
+				// right down are in frontSquares
+				// left Up are in backSquares
+				// returns possible distance to travel
+				frontSquares = frontSquares * 60;
+				backSquares = backSquares * 60;
+				System.out.println(frontSquares + "  " + backSquares);
+			}
 		}
 
 		private void updatePosition(int x, int y) {
