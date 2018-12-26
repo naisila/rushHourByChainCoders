@@ -1,0 +1,15 @@
+Grid:6;
+Solved:1;
+Stars:2;
+Crowns:0;
+MinMoves:15;
+Moves:3;
+Car0:(0,120),2,0,src/rushHour/images/players-car.png;
+Car1:(0,0),2,1,src/rushHour/images/yellowCar.png;
+Car2:(180,0),2,1,src/rushHour/images/greenCar.png;
+Car3:(180,120),2,1,src/rushHour/images/vertical2x1.png;
+Car4:(0,180),3,0,src/rushHour/images/horizontal3x1.png;
+Car5:(300,120),3,1,src/rushHour/images/vertical3x1.png;
+Car6:(60,240),2,1,src/rushHour/images/vertical2x1.png;
+Car7:(120,240),2,0,src/rushHour/images/grayCar.png;
+Car8:(120,300),2,0,src/rushHour/images/blueCar.png;

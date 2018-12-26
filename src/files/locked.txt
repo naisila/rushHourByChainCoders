@@ -1,0 +1,3 @@
+src/rushHour/images/purple car.png;
+src/rushHour/images/silver car.png;
+src/rushHour/images/yellow car.png;

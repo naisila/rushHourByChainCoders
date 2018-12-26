@@ -1,0 +1,7 @@
+src/rushHour/images/red car.png;
+src/rushHour/images/white car.png;
+src/rushHour/images/white car2.png;
+src/rushHour/images/pink car.png;
+src/rushHour/images/blue car.png;
+src/rushHour/images/black car.png;
+src/rushHour/images/green car.png;
