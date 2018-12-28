@@ -87,13 +87,11 @@ public class Game extends JPanel {
 	private JButton expl;
 	private JButton undo;
 	private JLabel reward;
-	private Boolean exploded;
 
 	/**
 	 * Create the panel.
 	 */
 	public Game(FileManagementSystem fmsi, int diffic, int puzzNo) {
-		exploded = false;
 		fms = fmsi;
 		diff = diffic;
 		puzz = puzzNo;
@@ -122,8 +120,8 @@ public class Game extends JPanel {
 		add(rushhour);
 
 		avatar = new JLabel("");
-		avatar.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/" + fmsi.getUserData().getAvatar()).getImage().getScaledInstance(100,
-				100, Image.SCALE_DEFAULT)));
+		avatar.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/" + fmsi.getUserData().getAvatar()).getImage()
+				.getScaledInstance(100, 100, Image.SCALE_DEFAULT)));
 		avatar.setBounds(630, 5, 100, 100);
 		add(avatar);
 
@@ -141,8 +139,8 @@ public class Game extends JPanel {
 		});
 
 		instr = new JLabel("");
-		instr.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/goodLuck.png").getImage()
-				.getScaledInstance(260, 75, Image.SCALE_DEFAULT)));
+		instr.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/goodLuck.png").getImage().getScaledInstance(260,
+				75, Image.SCALE_DEFAULT)));
 		instr.setBounds(1, 450, 260, 75);
 		add(instr);
 
@@ -171,7 +169,6 @@ public class Game extends JPanel {
 		expl.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JButton source = (JButton) e.getSource();
 				grid.explode();
 			}
 
@@ -197,23 +194,22 @@ public class Game extends JPanel {
 		// here we create and initialise the grid cars
 		cars = fms.getPuzzleConfig(diff, puzz);
 		puzzleConf = fms.getPuzzleStats(diff, puzz);
-		
+
 		String current = fms.getUserData().getCar();
-		if(!current.equals("red car.png"))
-		{
-			if(current.equals("pink car.png"))
+		if (!current.equals("red car.png")) {
+			if (current.equals("pink car.png"))
 				cars.get(0).setUrl("src/rushHour/images/pPinkCar.png");
-			else if(current.equals("purple car.png"))
+			else if (current.equals("purple car.png"))
 				cars.get(0).setUrl("src/rushHour/images/pPurpleCar.png");
-			else if(current.equals("white car.png"))
+			else if (current.equals("white car.png"))
 				cars.get(0).setUrl("src/rushHour/images/pWhiteCar.png");
-			else if(current.equals("white car2.png"))
+			else if (current.equals("white car2.png"))
 				cars.get(0).setUrl("src/rushHour/images/pWhiteCar2.png");
-			else if(current.equals("yellow car.png"))
+			else if (current.equals("yellow car.png"))
 				cars.get(0).setUrl("src/rushHour/images/pYellowCar.png");
-			else if(current.equals("black car.png"))
+			else if (current.equals("black car.png"))
 				cars.get(0).setUrl("src/rushHour/images/pBlackCar.png");
-			else if(current.equals("blue car.png"))
+			else if (current.equals("blue car.png"))
 				cars.get(0).setUrl("src/rushHour/images/pBlueCar.png");
 			else
 				cars.get(0).setUrl("src/rushHour/images/pGreenCar.png");
@@ -222,8 +218,6 @@ public class Game extends JPanel {
 		grid = new GameGrid(cars, puzzleConf.get(0));
 		grid.setBounds(270, 110, 60 * puzzleConf.get(0), 60 * puzzleConf.get(0));
 		add(grid);
-		
-		
 
 		jam = new JLabel("");
 		jam.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/jam.jpg").getImage()
@@ -550,7 +544,7 @@ public class Game extends JPanel {
 				Clip clipNameClip;
 				try {
 					AudioInputStream clipNameAIS = AudioSystem
-							.getAudioInputStream(getClass().getResourceAsStream("/sound/explosion.wav"));
+							.getAudioInputStream(getClass().getResourceAsStream("/rushHour/sound/explosion.wav"));
 
 					clipNameClip = AudioSystem.getClip();
 					clipNameClip.open(clipNameAIS);

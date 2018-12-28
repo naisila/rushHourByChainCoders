@@ -2,7 +2,7 @@ package rushHour;
 
 /**
  * __Main Menu Panel of the game.
- * @author __Kunduz
+ * @author __Naisila and Kunduz
  * @version__ 20/11/2018
  */
 import javax.swing.JPanel;
@@ -65,8 +65,8 @@ public class MainMenu extends JPanel {
 
 		avatar = new JLabel("");
 		avatar.setBounds(619, 11, 97, 89);
-		avatar.setIcon(
-				new ImageIcon(new ImageIcon("src/rushHour/images/" + u.getAvatar()).getImage().getScaledInstance(90, 90, Image.SCALE_DEFAULT)));
+		avatar.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/" + u.getAvatar()).getImage()
+				.getScaledInstance(90, 90, Image.SCALE_DEFAULT)));
 		add(avatar);
 
 		coinNum = new JTextArea();
@@ -259,8 +259,8 @@ public class MainMenu extends JPanel {
 	public void update() {
 		u = fms.getUserData();
 		coinNum.setText(u.getCoins() + "");
-		avatar.setIcon(
-				new ImageIcon(new ImageIcon("src/rushHour/images/" + u.getAvatar()).getImage().getScaledInstance(90, 90, Image.SCALE_DEFAULT)));
+		avatar.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/" + u.getAvatar()).getImage()
+				.getScaledInstance(90, 90, Image.SCALE_DEFAULT)));
 		name.setText(u.getName());
 	}
 }

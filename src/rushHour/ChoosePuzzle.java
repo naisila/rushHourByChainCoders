@@ -1,11 +1,11 @@
 package rushHour;
 
-import javax.print.DocFlavor.URL;
 /**
- * __Game Panel of the game.
- * @author __Talha
+ * __Choose Puzzle Panel of the game.
+ * @author __Naisila and Talha
  * @version__18/11/2018
  */
+
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -629,7 +629,7 @@ public class ChoosePuzzle extends JPanel {
 		} else {
 			if (puzzle1.get(2) == 0) {
 				puzz1.setText("SOLVED! BUT NO STARS :(");
-				puzz1.setBackground(new Color(147,112,219));
+				puzz1.setBackground(new Color(147, 112, 219));
 			} else if (puzzle1.get(2) == 1) {
 				puzz1.setVisible(false);
 				lblStr.setVisible(true);
@@ -651,7 +651,7 @@ public class ChoosePuzzle extends JPanel {
 		} else {
 			if (puzzle2.get(2) == 0) {
 				puzz2.setText("SOLVED! BUT NO STARS :(");
-				puzz2.setBackground(new Color(147,112,219));
+				puzz2.setBackground(new Color(147, 112, 219));
 			} else if (puzzle2.get(2) == 1) {
 				puzz2.setVisible(false);
 				lblStr_21.setVisible(true);
@@ -673,7 +673,7 @@ public class ChoosePuzzle extends JPanel {
 		} else {
 			if (puzzle3.get(2) == 0) {
 				puzz3.setText("SOLVED! BUT NO STARS :(");
-				puzz3.setBackground(new Color(147,112,219));
+				puzz3.setBackground(new Color(147, 112, 219));
 			} else if (puzzle3.get(2) == 1) {
 				puzz3.setVisible(false);
 				lblStr_31.setVisible(true);
@@ -695,7 +695,7 @@ public class ChoosePuzzle extends JPanel {
 		} else {
 			if (puzzle4.get(2) == 0) {
 				puzz4.setText("SOLVED! BUT NO STARS :(");
-				puzz4.setBackground(new Color(147,112,219));
+				puzz4.setBackground(new Color(147, 112, 219));
 			} else if (puzzle4.get(2) == 1) {
 				puzz4.setVisible(false);
 				lblStr_41.setVisible(true);
@@ -717,7 +717,7 @@ public class ChoosePuzzle extends JPanel {
 		} else {
 			if (puzzle5.get(2) == 0) {
 				puzz5.setText("SOLVED! BUT NO STARS :(");
-				puzz5.setBackground(new Color(147,112,219));
+				puzz5.setBackground(new Color(147, 112, 219));
 			} else if (puzzle5.get(2) == 1) {
 				puzz5.setVisible(false);
 				lblStr_51.setVisible(true);
@@ -739,7 +739,7 @@ public class ChoosePuzzle extends JPanel {
 		} else {
 			if (puzzle6.get(2) == 0) {
 				puzz6.setText("SOLVED! BUT NO STARS :(");
-				puzz6.setBackground(new Color(147,112,219));
+				puzz6.setBackground(new Color(147, 112, 219));
 			} else if (puzzle6.get(2) == 1) {
 				puzz6.setVisible(false);
 				lblStr_61.setVisible(true);
@@ -761,7 +761,7 @@ public class ChoosePuzzle extends JPanel {
 		} else {
 			if (puzzle7.get(2) == 0) {
 				puzz7.setText("SOLVED! BUT NO STARS :(");
-				puzz7.setBackground(new Color(147,112,219));
+				puzz7.setBackground(new Color(147, 112, 219));
 			} else if (puzzle7.get(2) == 1) {
 				puzz7.setVisible(false);
 				lblStr_71.setVisible(true);
@@ -783,7 +783,7 @@ public class ChoosePuzzle extends JPanel {
 		} else {
 			if (puzzle8.get(2) == 0) {
 				puzz8.setText("SOLVED! BUT NO STARS :(");
-				puzz8.setBackground(new Color(147,112,219));
+				puzz8.setBackground(new Color(147, 112, 219));
 			} else if (puzzle8.get(2) == 1) {
 				puzz8.setVisible(false);
 				lblStr_81.setVisible(true);
@@ -827,7 +827,7 @@ public class ChoosePuzzle extends JPanel {
 		} else {
 			if (puzzle10.get(2) == 0) {
 				puzz10.setText("SOLVED! BUT NO STARS :(");
-				puzz10.setBackground(new Color(147,112,219));
+				puzz10.setBackground(new Color(147, 112, 219));
 			} else if (puzzle10.get(2) == 1) {
 				puzz10.setVisible(false);
 				lblStr_101.setVisible(true);

@@ -1,8 +1,8 @@
 package rushHour;
 
 /**
- * __Game Panel of the game.
- * @author __Masna
+ * __Garage Panel of the game.
+ * @author __Masna and Naisila
  * @version__18/11/2018
  */
 import javax.swing.JPanel;
@@ -10,6 +10,7 @@ import javax.swing.JScrollPane;
 
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Image;
 
 import javax.swing.ImageIcon;
@@ -24,7 +25,6 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
 
-
 public class GaragePanel extends JPanel {
 	/**
 	 * 
@@ -34,7 +34,7 @@ public class GaragePanel extends JPanel {
 	private JLabel coinsLabel;
 	private int coins;
 	private FileManagementSystem fileSystem;
-	
+
 	/**
 	 * Create the panel.
 	 */
@@ -43,15 +43,16 @@ public class GaragePanel extends JPanel {
 		setOpaque(false);
 		this.fileSystem = fileSystem;
 		coins = this.fileSystem.getUserData().getCoins();
-		
-		Image img = new ImageIcon("src/rushHour/images/back.png").getImage().getScaledInstance(120, 45,
+
+		Image img = new ImageIcon("src/rushHour/images/back.png").getImage().getScaledInstance(120, 65,
 				Image.SCALE_DEFAULT);
 		Image img1 = new ImageIcon("src/rushHour/images/my garage.png").getImage().getScaledInstance(250, 50,
 				Image.SCALE_DEFAULT);
 
 		back = new JLabel("");
 		back.setIcon(new ImageIcon(img));
-		back.setBounds(10, 11, 120, 45);
+		back.setHorizontalAlignment(SwingConstants.CENTER);
+		back.setBounds(0, 0, 156, 65);
 		add(back);
 
 		JLabel lblNewLabel_1 = new JLabel("");
@@ -61,7 +62,7 @@ public class GaragePanel extends JPanel {
 		UIManager.put("TabbedPane.contentOpaque", false);
 		JTabbedPane tabbedPane = new JTabbedPane();
 		tabbedPane.setBounds(68, 66, 654, 407);
-		//tabbedPane.setOpaque(false);
+		// tabbedPane.setOpaque(false);
 
 		JComponent panel1 = makeCarsPanel("Panel #1");
 		tabbedPane.addTab("My Cars", null, panel1, "Does nothing");
@@ -72,11 +73,13 @@ public class GaragePanel extends JPanel {
 //		tabbedPane.addTab("My Achievements", null, panel2, "Gets Achievements");
 
 		coinsLabel = new JLabel(String.valueOf(coins)); // Need to obtain this value from the text file
-		coinsLabel.setBounds(629, 31, 44, 14);
+		coinsLabel.setBounds(629, 31, 100, 50);
+		coinsLabel.setFont(new Font("Monospaced", Font.BOLD, 20));
+		coinsLabel.setForeground(Color.WHITE);
 		add(coinsLabel);
 
 		JLabel label_1 = new JLabel("");
-		label_1.setBounds(594, 26, 25, 25);
+		label_1.setBounds(594, 40, 25, 25);
 		label_1.setIcon(new ImageIcon(new ImageIcon("src/rushHour/images/coin.png").getImage().getScaledInstance(25, 25,
 				Image.SCALE_DEFAULT)));
 		add(label_1);
@@ -138,7 +141,7 @@ public class GaragePanel extends JPanel {
 	protected JComponent makeCarsPanel(String text) {
 		JPanel panel = new JPanel(false);
 		panel.setLayout(null);
-		//panel.setBackground(new Color(101, 140, 217));
+		// panel.setBackground(new Color(101, 140, 217));
 		setOpaque(false);
 		panel.setOpaque(false);
 		JButton unlockCar0 = new JButton("Default");
@@ -151,7 +154,7 @@ public class GaragePanel extends JPanel {
 		JButton unlockCar7 = new JButton("Unlock for 32000");
 		JButton unlockCar8 = new JButton("Unlock for 35000");
 		JButton unlockCar9 = new JButton("Unlock for 40000");
-		
+
 		ArrayList<JButton> buttonList = new ArrayList<>();
 		buttonList.add(unlockCar0);
 		buttonList.add(unlockCar1);
@@ -163,7 +166,7 @@ public class GaragePanel extends JPanel {
 		buttonList.add(unlockCar7);
 		buttonList.add(unlockCar8);
 		buttonList.add(unlockCar9);
-		
+
 		JScrollPane scrollPane = new JScrollPane();
 		scrollPane.setBounds(10, 11, 629, 368);
 		scrollPane.setBorder(null);
@@ -175,13 +178,12 @@ public class GaragePanel extends JPanel {
 		JPanel content = new JPanel();
 		content.setBounds(10, 11, 679, 572);
 		content.setPreferredSize(new Dimension(610, 715));
-		//content.setBackground(new Color(101, 140, 217));
+		// content.setBackground(new Color(101, 140, 217));
 		content.setOpaque(false);
 		scrollPane.getViewport().setOpaque(false);
 		scrollPane.setViewportView(content);
 		content.setLayout(null);
 		// content.setAutoscrolls(true);
-		
 
 		Image coin = new ImageIcon("src/rushHour/images/coin.png").getImage().getScaledInstance(25, 25,
 				Image.SCALE_DEFAULT);
@@ -194,7 +196,7 @@ public class GaragePanel extends JPanel {
 		label.setIcon(new ImageIcon(img));
 		label.setBounds(36, 31, 141, 114);
 		content.add(label);
-		
+
 		unlockCar0.setBounds(10, 141, 169, 23);
 		unlockCar0.setHorizontalTextPosition(SwingConstants.CENTER);
 		unlockCar0.setHorizontalAlignment(SwingConstants.CENTER);
@@ -203,8 +205,7 @@ public class GaragePanel extends JPanel {
 		else
 			unlockCar0.setEnabled(true);
 		unlockCar0.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e)
-			{
+			public void mouseClicked(MouseEvent e) {
 				GaragePanel.this.fileSystem.updateCar("red car.png");
 				unlockCar0.setEnabled(false);
 				String userCar = GaragePanel.this.fileSystem.getUserData().getCar();
@@ -212,7 +213,7 @@ public class GaragePanel extends JPanel {
 			}
 		});
 		content.add(unlockCar0);
-		
+
 		JLabel label_1 = new JLabel("");
 		Image img2 = new ImageIcon("src/rushHour/images/white car.png").getImage().getScaledInstance(165, 80,
 				Image.SCALE_DEFAULT);
@@ -230,20 +231,17 @@ public class GaragePanel extends JPanel {
 		unlockCar1.setIcon(new ImageIcon(coin));
 		unlockCar1.setBounds(202, 141, 169, 23);
 		unlockCar1.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) 
-			{
+			public void mouseClicked(MouseEvent e) {
 				coins = GaragePanel.this.fileSystem.getUserData().getCoins();
-				
-				if(unlockCar1.getText().equals("Select Car"))
-				{
+
+				if (unlockCar1.getText().equals("Select Car")) {
 					GaragePanel.this.fileSystem.updateCar("white car.png");
 					unlockCar1.setEnabled(false);
 					String userCar = GaragePanel.this.fileSystem.getUserData().getCar();
 					unUnEnable(buttonList, userCar);
 				}
-				
-				if (coins >= 10000 && !unlockCar1.getText().equals("Select Car"))
-				{
+
+				if (coins >= 10000 && !unlockCar1.getText().equals("Select Car")) {
 					unlockCar1.setText("Select Car");
 					unlockCar1.setHorizontalTextPosition(SwingConstants.CENTER);
 					unlockCar1.setHorizontalAlignment(SwingConstants.CENTER);
@@ -255,20 +253,18 @@ public class GaragePanel extends JPanel {
 				}
 			}
 		});
-		
-		if (fileSystem.isUnlocked("white car.png"))
-		{
+
+		if (fileSystem.isUnlocked("white car.png")) {
 			unlockCar1.setText("Select Car");
 			unlockCar1.setIcon(null);
 			label_2.setVisible(false);
 			unlockCar1.setHorizontalTextPosition(SwingConstants.CENTER);
 			unlockCar1.setHorizontalAlignment(SwingConstants.CENTER);
 		}
-		if (fileSystem.getUserData().getCar().equals("white car.png"))
-		{
+		if (fileSystem.getUserData().getCar().equals("white car.png")) {
 			unlockCar1.setEnabled(false);
 		}
-		
+
 		content.add(unlockCar1);
 
 		JLabel lblNewLabel_2 = new JLabel("");
@@ -282,26 +278,23 @@ public class GaragePanel extends JPanel {
 		label_3.setIcon(new ImageIcon(locked));
 		label_3.setBounds(533, 31, 25, 25);
 		content.add(label_3);
-		
+
 		unlockCar2.setHorizontalTextPosition(SwingConstants.LEFT);
 		unlockCar2.setHorizontalAlignment(SwingConstants.RIGHT);
 		unlockCar2.setIcon(new ImageIcon(coin));
 		unlockCar2.setBounds(410, 141, 169, 23);
 		unlockCar2.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) 
-			{
+			public void mouseClicked(MouseEvent e) {
 				coins = GaragePanel.this.fileSystem.getUserData().getCoins();
-				
-				if(unlockCar2.getText().equals("Select Car"))
-				{
+
+				if (unlockCar2.getText().equals("Select Car")) {
 					GaragePanel.this.fileSystem.updateCar("yellow car.png");
 					unlockCar2.setEnabled(false);
 					String userCar = GaragePanel.this.fileSystem.getUserData().getCar();
 					unUnEnable(buttonList, userCar);
 				}
-				
-				if (coins >= 12000 && !unlockCar2.getText().equals("Select Car"))
-				{
+
+				if (coins >= 12000 && !unlockCar2.getText().equals("Select Car")) {
 					unlockCar2.setText("Select Car");
 					unlockCar2.setHorizontalTextPosition(SwingConstants.CENTER);
 					unlockCar2.setHorizontalAlignment(SwingConstants.CENTER);
@@ -313,20 +306,18 @@ public class GaragePanel extends JPanel {
 				}
 			}
 		});
-		
-		if (fileSystem.isUnlocked("yellow car.png"))
-		{
+
+		if (fileSystem.isUnlocked("yellow car.png")) {
 			unlockCar2.setText("Select Car");
 			unlockCar2.setIcon(null);
 			label_3.setVisible(false);
 			unlockCar2.setHorizontalTextPosition(SwingConstants.CENTER);
 			unlockCar2.setHorizontalAlignment(SwingConstants.CENTER);
 		}
-		if (fileSystem.getUserData().getCar().equals("yellow car.png"))
-		{
+		if (fileSystem.getUserData().getCar().equals("yellow car.png")) {
 			unlockCar2.setEnabled(false);
 		}
-		
+
 		content.add(unlockCar2);
 
 		JLabel label_4 = new JLabel("");
@@ -340,27 +331,24 @@ public class GaragePanel extends JPanel {
 		label_5.setIcon(new ImageIcon(locked));
 		label_5.setBounds(132, 200, 25, 25);
 		content.add(label_5);
-		
+
 		unlockCar3.setHorizontalTextPosition(SwingConstants.LEFT);
 		unlockCar3.setHorizontalAlignment(SwingConstants.RIGHT);
 		unlockCar3.setIcon(new ImageIcon(coin));
 		unlockCar3.setBounds(10, 323, 169, 23);
 		unlockCar3.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) 
-			{
+			public void mouseClicked(MouseEvent e) {
 				coins = GaragePanel.this.fileSystem.getUserData().getCoins();
-				
-				if(unlockCar3.getText().equals("Select Car"))
-				{
+
+				if (unlockCar3.getText().equals("Select Car")) {
 					GaragePanel.this.fileSystem.updateCar("green car.png");
 					unlockCar3.setEnabled(false);
 					String userCar = GaragePanel.this.fileSystem.getUserData().getCar();
 					unUnEnable(buttonList, userCar);
 				}
-				
-				if (coins >= 20000 && !unlockCar3.getText().equals("Select Car"))
-				{
-					//coins = GaragePanel.this.fileSystem.getUserData().getCoins();
+
+				if (coins >= 20000 && !unlockCar3.getText().equals("Select Car")) {
+					// coins = GaragePanel.this.fileSystem.getUserData().getCoins();
 					unlockCar3.setText("Select Car");
 					unlockCar3.setHorizontalTextPosition(SwingConstants.CENTER);
 					unlockCar3.setHorizontalAlignment(SwingConstants.CENTER);
@@ -372,20 +360,18 @@ public class GaragePanel extends JPanel {
 				}
 			}
 		});
-		
-		if (fileSystem.isUnlocked("green car.png"))
-		{
+
+		if (fileSystem.isUnlocked("green car.png")) {
 			unlockCar3.setText("Select Car");
 			unlockCar3.setIcon(null);
 			label_5.setVisible(false);
 			unlockCar3.setHorizontalTextPosition(SwingConstants.CENTER);
 			unlockCar3.setHorizontalAlignment(SwingConstants.CENTER);
 		}
-		if (fileSystem.getUserData().getCar().equals("green car.png"))
-		{
+		if (fileSystem.getUserData().getCar().equals("green car.png")) {
 			unlockCar3.setEnabled(false);
 		}
-		
+
 		content.add(unlockCar3);
 
 		JLabel label_6 = new JLabel("");
@@ -399,26 +385,23 @@ public class GaragePanel extends JPanel {
 		label_7.setIcon(new ImageIcon(locked));
 		label_7.setBounds(325, 195, 25, 25);
 		content.add(label_7);
-		
+
 		unlockCar4.setHorizontalTextPosition(SwingConstants.LEFT);
 		unlockCar4.setHorizontalAlignment(SwingConstants.RIGHT);
 		unlockCar4.setIcon(new ImageIcon(coin));
 		unlockCar4.setBounds(202, 323, 169, 23);
 		unlockCar4.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) 
-			{
+			public void mouseClicked(MouseEvent e) {
 				coins = GaragePanel.this.fileSystem.getUserData().getCoins();
-				
-				if(unlockCar4.getText().equals("Select Car"))
-				{
+
+				if (unlockCar4.getText().equals("Select Car")) {
 					GaragePanel.this.fileSystem.updateCar("white car2.png");
 					unlockCar4.setEnabled(false);
 					String userCar = GaragePanel.this.fileSystem.getUserData().getCar();
 					unUnEnable(buttonList, userCar);
 				}
-				
-				if (coins >= 22000 && !unlockCar4.getText().equals("Select Car"))
-				{
+
+				if (coins >= 22000 && !unlockCar4.getText().equals("Select Car")) {
 					unlockCar4.setText("Select Car");
 					unlockCar4.setHorizontalTextPosition(SwingConstants.CENTER);
 					unlockCar4.setHorizontalAlignment(SwingConstants.CENTER);
@@ -430,20 +413,18 @@ public class GaragePanel extends JPanel {
 				}
 			}
 		});
-		
-		if (fileSystem.isUnlocked("white car2.png"))
-		{
+
+		if (fileSystem.isUnlocked("white car2.png")) {
 			unlockCar4.setText("Select Car");
 			unlockCar4.setIcon(null);
 			label_7.setVisible(false);
 			unlockCar4.setHorizontalTextPosition(SwingConstants.CENTER);
 			unlockCar4.setHorizontalAlignment(SwingConstants.CENTER);
 		}
-		if (fileSystem.getUserData().getCar().equals("white car2.png"))
-		{
+		if (fileSystem.getUserData().getCar().equals("white car2.png")) {
 			unlockCar4.setEnabled(false);
 		}
-		
+
 		content.add(unlockCar4);
 
 		JLabel label_8 = new JLabel("");
@@ -457,25 +438,22 @@ public class GaragePanel extends JPanel {
 		label_10.setIcon(new ImageIcon(locked));
 		label_10.setBounds(530, 190, 25, 25);
 		content.add(label_10);
-		
+
 		unlockCar5.setBounds(417, 323, 169, 23);
 		unlockCar5.setHorizontalTextPosition(SwingConstants.LEFT);
 		unlockCar5.setHorizontalAlignment(SwingConstants.RIGHT);
 		unlockCar5.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) 
-			{
+			public void mouseClicked(MouseEvent e) {
 				coins = GaragePanel.this.fileSystem.getUserData().getCoins();
-				
-				if(unlockCar5.getText().equals("Select Car"))
-				{
+
+				if (unlockCar5.getText().equals("Select Car")) {
 					GaragePanel.this.fileSystem.updateCar("blue car.png");
 					unlockCar5.setEnabled(false);
 					String userCar = GaragePanel.this.fileSystem.getUserData().getCar();
 					unUnEnable(buttonList, userCar);
 				}
-				
-				if (coins >= 25000 && !unlockCar5.getText().equals("Select Car"))
-				{
+
+				if (coins >= 25000 && !unlockCar5.getText().equals("Select Car")) {
 					unlockCar5.setText("Select Car");
 					unlockCar5.setHorizontalTextPosition(SwingConstants.CENTER);
 					unlockCar5.setHorizontalAlignment(SwingConstants.CENTER);
@@ -488,20 +466,18 @@ public class GaragePanel extends JPanel {
 			}
 		});
 		unlockCar5.setIcon(new ImageIcon(coin));
-		
-		if (fileSystem.isUnlocked("blue car.png"))
-		{
+
+		if (fileSystem.isUnlocked("blue car.png")) {
 			unlockCar5.setText("Select Car");
 			unlockCar5.setIcon(null);
 			label_10.setVisible(false);
 			unlockCar5.setHorizontalTextPosition(SwingConstants.CENTER);
 			unlockCar5.setHorizontalAlignment(SwingConstants.CENTER);
 		}
-		if (fileSystem.getUserData().getCar().equals("blue car.png"))
-		{
+		if (fileSystem.getUserData().getCar().equals("blue car.png")) {
 			unlockCar5.setEnabled(false);
 		}
-		
+
 		content.add(unlockCar5);
 
 		JLabel label_9 = new JLabel("");
@@ -510,32 +486,28 @@ public class GaragePanel extends JPanel {
 		label_9.setIcon(new ImageIcon(img7));
 		label_9.setBounds(0, 375, 169, 114);
 		content.add(label_9);
-		
+
 		JLabel label_12 = new JLabel("");
 		label_12.setBounds(132, 375, 25, 25);
 		label_12.setIcon(new ImageIcon(locked));
 		content.add(label_12);
-		
+
 		unlockCar6.setHorizontalTextPosition(SwingConstants.LEFT);
 		unlockCar6.setHorizontalAlignment(SwingConstants.RIGHT);
 		unlockCar6.setIcon(new ImageIcon(coin));
 		unlockCar6.setBounds(10, 500, 169, 23);
 		unlockCar6.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) 
-			{
+			public void mouseClicked(MouseEvent e) {
 				coins = GaragePanel.this.fileSystem.getUserData().getCoins();
-				
-				if(unlockCar6.getText().equals("Select Car"))
-				{
+
+				if (unlockCar6.getText().equals("Select Car")) {
 					GaragePanel.this.fileSystem.updateCar("purple car.png");
 					unlockCar6.setEnabled(false);
 					String userCar = GaragePanel.this.fileSystem.getUserData().getCar();
 					unUnEnable(buttonList, userCar);
 				}
 
-				
-				if (coins >= 30000 && !unlockCar6.getText().equals("Select Car"))
-				{
+				if (coins >= 30000 && !unlockCar6.getText().equals("Select Car")) {
 					unlockCar6.setText("Select Car");
 					unlockCar6.setHorizontalTextPosition(SwingConstants.CENTER);
 					unlockCar6.setHorizontalAlignment(SwingConstants.CENTER);
@@ -547,20 +519,18 @@ public class GaragePanel extends JPanel {
 				}
 			}
 		});
-		
-		if (fileSystem.isUnlocked("purple car.png"))
-		{
+
+		if (fileSystem.isUnlocked("purple car.png")) {
 			unlockCar6.setText("Select Car");
 			unlockCar6.setIcon(null);
 			label_12.setVisible(false);
 			unlockCar6.setHorizontalTextPosition(SwingConstants.CENTER);
 			unlockCar6.setHorizontalAlignment(SwingConstants.CENTER);
 		}
-		if (fileSystem.getUserData().getCar().equals("purple car.png"))
-		{
+		if (fileSystem.getUserData().getCar().equals("purple car.png")) {
 			unlockCar1.setEnabled(false);
 		}
-		
+
 		content.add(unlockCar6);
 
 		JLabel lblNewLabel_3 = new JLabel("");
@@ -574,27 +544,23 @@ public class GaragePanel extends JPanel {
 		label_13.setBounds(311, 373, 25, 25);
 		label_13.setIcon(new ImageIcon(locked));
 		content.add(label_13);
-		
+
 		unlockCar7.setHorizontalTextPosition(SwingConstants.LEFT);
 		unlockCar7.setHorizontalAlignment(SwingConstants.RIGHT);
 		unlockCar7.setIcon(new ImageIcon(coin));
 		unlockCar7.setBounds(202, 500, 169, 23);
 		unlockCar7.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) 
-			{
+			public void mouseClicked(MouseEvent e) {
 				coins = GaragePanel.this.fileSystem.getUserData().getCoins();
-				
-				if(unlockCar7.getText().equals("Select Car"))
-				{
+
+				if (unlockCar7.getText().equals("Select Car")) {
 					GaragePanel.this.fileSystem.updateCar("black car.png");
 					unlockCar7.setEnabled(false);
 					String userCar = GaragePanel.this.fileSystem.getUserData().getCar();
 					unUnEnable(buttonList, userCar);
 				}
 
-				
-				if (coins >= 32000 && !unlockCar7.getText().equals("Select Car"))
-				{
+				if (coins >= 32000 && !unlockCar7.getText().equals("Select Car")) {
 					unlockCar7.setText("Select Car");
 					unlockCar7.setHorizontalTextPosition(SwingConstants.CENTER);
 					unlockCar7.setHorizontalAlignment(SwingConstants.CENTER);
@@ -606,20 +572,18 @@ public class GaragePanel extends JPanel {
 				}
 			}
 		});
-		
-		if (fileSystem.isUnlocked("black car.png"))
-		{
+
+		if (fileSystem.isUnlocked("black car.png")) {
 			unlockCar7.setText("Select Car");
 			unlockCar7.setIcon(null);
 			label_13.setVisible(false);
 			unlockCar7.setHorizontalTextPosition(SwingConstants.CENTER);
 			unlockCar7.setHorizontalAlignment(SwingConstants.CENTER);
 		}
-		if (fileSystem.getUserData().getCar().equals("black car.png"))
-		{
+		if (fileSystem.getUserData().getCar().equals("black car.png")) {
 			unlockCar7.setEnabled(false);
 		}
-		
+
 		content.add(unlockCar7);
 
 		JLabel label_11 = new JLabel("");
@@ -633,27 +597,23 @@ public class GaragePanel extends JPanel {
 		lblNewLabel_5.setBounds(533, 375, 25, 25);
 		lblNewLabel_5.setIcon(new ImageIcon(locked));
 		content.add(lblNewLabel_5);
-		
+
 		unlockCar8.setHorizontalTextPosition(SwingConstants.LEFT);
 		unlockCar8.setHorizontalAlignment(SwingConstants.RIGHT);
 		unlockCar8.setIcon(new ImageIcon(coin));
 		unlockCar8.setBounds(417, 500, 169, 23);
 		unlockCar8.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) 
-			{
+			public void mouseClicked(MouseEvent e) {
 				coins = GaragePanel.this.fileSystem.getUserData().getCoins();
-				
-				if(unlockCar8.getText().equals("Select Car"))
-				{
+
+				if (unlockCar8.getText().equals("Select Car")) {
 					GaragePanel.this.fileSystem.updateCar("pink car.png");
 					unlockCar8.setEnabled(false);
 					String userCar = GaragePanel.this.fileSystem.getUserData().getCar();
 					unUnEnable(buttonList, userCar);
 				}
 
-				
-				if (coins >= 35000 && !unlockCar8.getText().equals("Select Car"))
-				{
+				if (coins >= 35000 && !unlockCar8.getText().equals("Select Car")) {
 					unlockCar8.setText("Select Car");
 					unlockCar8.setHorizontalTextPosition(SwingConstants.CENTER);
 					unlockCar8.setHorizontalAlignment(SwingConstants.CENTER);
@@ -665,20 +625,18 @@ public class GaragePanel extends JPanel {
 				}
 			}
 		});
-		
-		if (fileSystem.isUnlocked("pink car.png"))
-		{
+
+		if (fileSystem.isUnlocked("pink car.png")) {
 			unlockCar8.setText("Select Car");
 			unlockCar8.setIcon(null);
 			lblNewLabel_5.setVisible(false);
 			unlockCar8.setHorizontalTextPosition(SwingConstants.CENTER);
 			unlockCar8.setHorizontalAlignment(SwingConstants.CENTER);
 		}
-		if (fileSystem.getUserData().getCar().equals("pink car.png"))
-		{
+		if (fileSystem.getUserData().getCar().equals("pink car.png")) {
 			unlockCar8.setEnabled(false);
 		}
-		
+
 		content.add(unlockCar8);
 
 		JLabel lblNewLabel_4 = new JLabel("");
@@ -693,26 +651,23 @@ public class GaragePanel extends JPanel {
 		label_14.setIcon(new ImageIcon(locked));
 		content.add(label_14);
 		panel.add(scrollPane);
-		
+
 		unlockCar9.setHorizontalTextPosition(SwingConstants.LEFT);
 		unlockCar9.setHorizontalAlignment(SwingConstants.RIGHT);
 		unlockCar9.setIcon(new ImageIcon(coin));
 		unlockCar9.setBounds(10, 680, 169, 23);
 		unlockCar9.addMouseListener(new MouseAdapter() {
-			public void mouseClicked(MouseEvent e) 
-			{
+			public void mouseClicked(MouseEvent e) {
 				coins = GaragePanel.this.fileSystem.getUserData().getCoins();
-				
-				if(unlockCar9.getText().equals("Select Car"))
-				{
+
+				if (unlockCar9.getText().equals("Select Car")) {
 					GaragePanel.this.fileSystem.updateCar("silver car.png");
 					unlockCar9.setEnabled(false);
 					String userCar = GaragePanel.this.fileSystem.getUserData().getCar();
 					unUnEnable(buttonList, userCar);
 				}
 
-				if (coins >= 40000 && !unlockCar9.getText().equals("Select Car"))
-				{
+				if (coins >= 40000 && !unlockCar9.getText().equals("Select Car")) {
 					unlockCar9.setText("Select Car");
 					unlockCar9.setHorizontalTextPosition(SwingConstants.CENTER);
 					unlockCar9.setHorizontalAlignment(SwingConstants.CENTER);
@@ -724,88 +679,74 @@ public class GaragePanel extends JPanel {
 				}
 			}
 		});
-		
-		if (fileSystem.isUnlocked("silver car.png"))
-		{
+
+		if (fileSystem.isUnlocked("silver car.png")) {
 			unlockCar9.setText("Select Car");
 			unlockCar9.setIcon(null);
 			label_14.setVisible(false);
 			unlockCar9.setHorizontalTextPosition(SwingConstants.CENTER);
 			unlockCar9.setHorizontalAlignment(SwingConstants.CENTER);
 		}
-		if (fileSystem.getUserData().getCar().equals("silver car.png"))
-		{
+		if (fileSystem.getUserData().getCar().equals("silver car.png")) {
 			unlockCar9.setEnabled(false);
 		}
-		
+
 		content.add(unlockCar9);
 		return panel;
 	}
-	
-	private void unUnEnable(ArrayList<JButton> buttonList, String userCar)
-	{
-		for (int i = 0; i <= 9; i++)
-		{
+
+	private void unUnEnable(ArrayList<JButton> buttonList, String userCar) {
+		for (int i = 0; i <= 9; i++) {
 			buttonList.get(i).setEnabled(true);
 		}
 		System.out.println(userCar);
-		if (userCar.equals("red car.png"))
-		{
+		if (userCar.equals("red car.png")) {
 			System.out.println(userCar);
 			buttonList.get(0).setEnabled(false);
 		}
-		if (userCar.equals("white car.png"))
-		{
+		if (userCar.equals("white car.png")) {
 			System.out.println(userCar);
 			buttonList.get(1).setEnabled(false);
 		}
-		if (userCar.equals("yellow car.png"))
-		{
+		if (userCar.equals("yellow car.png")) {
 			System.out.println(userCar);
 			buttonList.get(2).setEnabled(false);
 		}
-		if (userCar.equals("green car.png"))
-		{
+		if (userCar.equals("green car.png")) {
 			System.out.println(userCar);
 			buttonList.get(3).setEnabled(false);
 		}
-		if (userCar.equals("white car2.png"))
-		{
+		if (userCar.equals("white car2.png")) {
 			System.out.println(userCar);
 			buttonList.get(4).setEnabled(false);
 		}
-		if (userCar.equals("blue car.png"))
-		{
+		if (userCar.equals("blue car.png")) {
 			System.out.println(userCar);
 			buttonList.get(5).setEnabled(false);
 		}
-		if (userCar.equals("purple car.png"))
-		{
+		if (userCar.equals("purple car.png")) {
 			System.out.println(userCar);
 			buttonList.get(6).setEnabled(false);
 		}
-		if (userCar.equals("black car.png"))
-		{
+		if (userCar.equals("black car.png")) {
 			System.out.println(userCar);
 			buttonList.get(7).setEnabled(false);
 		}
-		if (userCar.equals("pink car.png"))
-		{
+		if (userCar.equals("pink car.png")) {
 			System.out.println(userCar);
 			buttonList.get(8).setEnabled(false);
 		}
-		if (userCar.equals("silver car.png"))
-		{	
+		if (userCar.equals("silver car.png")) {
 			System.out.println(userCar);
 			buttonList.get(9).setEnabled(false);
 		}
 	}
-	
+
 	public void update() {
 		coins = this.fileSystem.getUserData().getCoins();
 		coinsLabel.setText(String.valueOf(coins));
 	}
-	
+
 	public void setMLBack(MouseAdapter madpt) {
 		back.addMouseListener(madpt);
 	}

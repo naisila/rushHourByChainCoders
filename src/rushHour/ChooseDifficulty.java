@@ -1,16 +1,15 @@
 package rushHour;
 
 /**
- * __Game Panel of the game.
- * @author __Masna
+ * __Choose Difficulty Panel of the game.
+ * @author __Naisila and Masna
  * @version__18/11/2018
  */
-import javax.swing.JPanel;
 
+import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Image;
-
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -19,8 +18,6 @@ import javax.swing.JLabel;
 import javax.swing.JButton;
 import javax.swing.JTextPane;
 import javax.swing.SwingConstants;
-
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -120,8 +117,7 @@ public class ChooseDifficulty extends JPanel {
 					25, Image.SCALE_DEFAULT)));
 			inter.setEnabled(false);
 			moreStars.setText((15 - u.getStars()) + " stars needed to unlock next level");
-		}
-		else {
+		} else {
 			inter.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {
@@ -151,7 +147,7 @@ public class ChooseDifficulty extends JPanel {
 			}
 		});
 		inter.setBounds(270, 215, 183, 45);
-		
+
 		add(inter);
 
 		hard = new JButton("");
@@ -164,9 +160,7 @@ public class ChooseDifficulty extends JPanel {
 			hard.setEnabled(false);
 			if (u.getStars() >= 15)
 				moreStars.setText((30 - u.getStars()) + " stars needed to unlock next level");
-		}
-		else
-		{
+		} else {
 			hard.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {
@@ -208,9 +202,7 @@ public class ChooseDifficulty extends JPanel {
 			expert.setEnabled(false);
 			if (u.getStars() >= 30)
 				moreStars.setText((45 - u.getStars()) + " stars needed to unlock next level");
-		}
-		else
-		{
+		} else {
 			expert.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mousePressed(MouseEvent e) {
@@ -240,16 +232,16 @@ public class ChooseDifficulty extends JPanel {
 			}
 		});
 		expert.setBounds(270, 387, 183, 45);
-		
+
 		add(expert);
 
 		stars = new JTextPane();
 		stars.setText(u.getStars() + ""); // here a method will be used to get the user's number of stars
 		stars.setFont(new Font("Monospaced", Font.BOLD, 20));
 		stars.setOpaque(false);
-		stars.setBounds(55, 175, 30, 20);
+		stars.setBounds(55, 175, 30, 40);
 		add(stars);
-		
+
 		JLabel label_1 = new JLabel("");
 		label_1.setIcon(new ImageIcon(img3));
 		label_1.setBounds(90, 152, 65, 65);

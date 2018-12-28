@@ -1,8 +1,9 @@
 package rushHour;
+
 /**
- * __Square
- * @author __Fatbardh
- * @version__18/11/2018
+ * __Square class of the game.
+ * 
+ * @author __Fatbardh @version__18/11/2018
  */
 public class Square {
 	final private int SIZE = 60;

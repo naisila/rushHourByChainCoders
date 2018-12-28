@@ -71,7 +71,7 @@ public class RushHourFrame extends JFrame {
 		setTitle("<Rush Hour> by Chain Coders");
 		setResizable(false);
 
-		//layers = new JLayeredPane();
+		// layers = new JLayeredPane();
 		// setContentPane(layers);
 
 		fms = new FileManagementSystem();
@@ -95,13 +95,10 @@ public class RushHourFrame extends JFrame {
 //			layers.add(reg, new Integer(8));
 //		else
 //			layers.add(reg, new Integer(0));
-		
-		
-		if (!fms.userFileExists())
-		{
+
+		if (!fms.userFileExists()) {
 			RushHourFrame.this.setContentPane(reg);
-		}
-		else {
+		} else {
 			RushHourFrame.this.setContentPane(menu);
 		}
 		k = 8;
@@ -119,7 +116,7 @@ public class RushHourFrame extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				menu.update();
-				//layers.setLayer(menu, RushHourFrame.this.getK());
+				// layers.setLayer(menu, RushHourFrame.this.getK());
 				RushHourFrame.this.setContentPane(menu);
 				RushHourFrame.this.invalidate();
 				RushHourFrame.this.validate();
@@ -130,7 +127,7 @@ public class RushHourFrame extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				chooseDiff.update();
-				//layers.setLayer(chooseDiff, RushHourFrame.this.getK());
+				// layers.setLayer(chooseDiff, RushHourFrame.this.getK());
 				RushHourFrame.this.setContentPane(chooseDiff);
 				RushHourFrame.this.invalidate();
 				RushHourFrame.this.validate();
@@ -140,7 +137,7 @@ public class RushHourFrame extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				menu.update();
-				//layers.setLayer(menu, RushHourFrame.this.getK());
+				// layers.setLayer(menu, RushHourFrame.this.getK());
 				RushHourFrame.this.setContentPane(menu);
 				RushHourFrame.this.invalidate();
 				RushHourFrame.this.validate();
@@ -152,7 +149,7 @@ public class RushHourFrame extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				choosePuzz.setDiff(chooseDiff.getDiff());
 				choosePuzz.update();
-				//layers.setLayer(choosePuzz, RushHourFrame.this.getK());
+				// layers.setLayer(choosePuzz, RushHourFrame.this.getK());
 				RushHourFrame.this.setContentPane(choosePuzz);
 				RushHourFrame.this.invalidate();
 				RushHourFrame.this.validate();
@@ -163,7 +160,7 @@ public class RushHourFrame extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				chooseDiff.update();
-				//layers.setLayer(chooseDiff, RushHourFrame.this.getK());
+				// layers.setLayer(chooseDiff, RushHourFrame.this.getK());
 				RushHourFrame.this.setContentPane(chooseDiff);
 				RushHourFrame.this.invalidate();
 				RushHourFrame.this.validate();
@@ -175,21 +172,21 @@ public class RushHourFrame extends JFrame {
 			public void mousePressed(MouseEvent e) {
 				game = new Game(fms, chooseDiff.getDiff(), choosePuzz.getPuzz());
 				game.setBounds(0, 0, 778, 566);
-				//layers.add(game, new Integer(RushHourFrame.this.getK()));
+				// layers.add(game, new Integer(RushHourFrame.this.getK()));
 				RushHourFrame.this.setContentPane(game);
 				RushHourFrame.this.invalidate();
-		        RushHourFrame.this.validate();
+				RushHourFrame.this.validate();
 				game.setMLBack(new MouseAdapter() {
 					@Override
 					public void mousePressed(MouseEvent e) {
 						choosePuzz.update();
-						//layers.setLayer(choosePuzz, RushHourFrame.this.getK());
+						// layers.setLayer(choosePuzz, RushHourFrame.this.getK());
 						RushHourFrame.this.setContentPane(choosePuzz);
 						RushHourFrame.this.invalidate();
-				        RushHourFrame.this.validate();
+						RushHourFrame.this.validate();
 					}
 				});
-				
+
 			}
 		});
 
@@ -197,10 +194,10 @@ public class RushHourFrame extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				cust.update();
-				//layers.setLayer(cust, RushHourFrame.this.getK());
+				// layers.setLayer(cust, RushHourFrame.this.getK());
 				RushHourFrame.this.setContentPane(cust);
 				RushHourFrame.this.invalidate();
-		        RushHourFrame.this.validate();
+				RushHourFrame.this.validate();
 			}
 		});
 
@@ -208,10 +205,10 @@ public class RushHourFrame extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				cust.update();
-				//layers.setLayer(cust, RushHourFrame.this.getK());
+				// layers.setLayer(cust, RushHourFrame.this.getK());
 				RushHourFrame.this.setContentPane(cust);
 				RushHourFrame.this.invalidate();
-		        RushHourFrame.this.validate();
+				RushHourFrame.this.validate();
 			}
 		});
 
@@ -219,10 +216,10 @@ public class RushHourFrame extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				garage.update();
-				//layers.setLayer(garage, RushHourFrame.this.getK());
+				// layers.setLayer(garage, RushHourFrame.this.getK());
 				RushHourFrame.this.setContentPane(garage);
 				RushHourFrame.this.invalidate();
-		        RushHourFrame.this.validate();
+				RushHourFrame.this.validate();
 			}
 		});
 
@@ -233,20 +230,20 @@ public class RushHourFrame extends JFrame {
 				fms.setUserData(cust.getName(), u.getAvatar(), u.getCoins() + "", u.getStars() + "", u.getCrowns() + "",
 						u.getCar());
 				menu.update();
-				//layers.setLayer(menu, RushHourFrame.this.getK());
+				// layers.setLayer(menu, RushHourFrame.this.getK());
 				RushHourFrame.this.setContentPane(menu);
 				RushHourFrame.this.invalidate();
-		        RushHourFrame.this.validate();
+				RushHourFrame.this.validate();
 			}
 		});
 
 		menu.setMLInst(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				//layers.setLayer(inst, RushHourFrame.this.getK());
+				// layers.setLayer(inst, RushHourFrame.this.getK());
 				RushHourFrame.this.setContentPane(inst);
 				RushHourFrame.this.invalidate();
-		        RushHourFrame.this.validate();
+				RushHourFrame.this.validate();
 			}
 		});
 
@@ -254,10 +251,10 @@ public class RushHourFrame extends JFrame {
 			@Override
 			public void mousePressed(MouseEvent e) {
 				menu.update();
-				//layers.setLayer(menu, RushHourFrame.this.getK());
+				// layers.setLayer(menu, RushHourFrame.this.getK());
 				RushHourFrame.this.setContentPane(menu);
 				RushHourFrame.this.invalidate();
-		        RushHourFrame.this.validate();
+				RushHourFrame.this.validate();
 			}
 		});
 

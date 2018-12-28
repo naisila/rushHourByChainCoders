@@ -1,5 +1,11 @@
 package rushHour;
 
+/**
+ * __Specialized button for the game.
+ * @author __Fatbardh
+ * @version__18/11/2018
+ */
+
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -57,12 +63,11 @@ public class MyButton extends JButton implements MouseListener {
 		super.setEnabled(b);
 		repaint();
 	}
-	
+
 	@Override
 	public void mousePressed(MouseEvent e) {
 		Clip clipNameClip;
-		try
-		{
+		try {
 			AudioInputStream clipNameAIS = AudioSystem
 					.getAudioInputStream(getClass().getResourceAsStream("/sound/button.wav"));
 
@@ -82,8 +87,7 @@ public class MyButton extends JButton implements MouseListener {
 	@Override
 	protected void paintComponent(Graphics g) {
 		Graphics2D g2 = (Graphics2D) g.create();
-		
-		
+
 		if (!isEnabled()) {
 			gradient = new GradientPaint(new Point(0, 0), Color.GRAY.brighter(), new Point(0, getHeight()),
 					Color.GRAY.darker());
@@ -97,29 +101,24 @@ public class MyButton extends JButton implements MouseListener {
 						Color.ORANGE.darker());
 			}
 		}
-	    
+
 		setHorizontalTextPosition(SwingConstants.LEFT);
 		setHorizontalAlignment(SwingConstants.RIGHT);
-		
-	
-		
+
 		g2.setPaint(Color.DARK_GRAY);
 		g2.fillRoundRect(0, 0, getWidth(), getHeight(), 15, 15);
 		g2.setPaint(gradient);
 		g2.fillRoundRect(2, 2, getWidth() - 4, getHeight() - 4, 15, 15);
-		
-		
+
 		g2.setPaint(Color.BLACK);
 		g2.drawString(getText(), 20, getHeight() / 2 - 5);
-		
+
 		reward = new JLabel("");
-		reward.setIcon(new ImageIcon(new ImageIcon(file).getImage().getScaledInstance(40,
-				40, Image.SCALE_DEFAULT)));
-		reward.setBounds(100, 100, 50,50);
-		
+		reward.setIcon(new ImageIcon(new ImageIcon(file).getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT)));
+		reward.setBounds(100, 100, 50, 50);
+
 		add(reward);
 		reward.setVisible(true);
-		
 
 		g2.finalize();
 		// The drawString(string) must be put after the setPaint(gradient)
