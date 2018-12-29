@@ -21,6 +21,22 @@ limit. This is a level-based game with 4 levels of difficulty and 40 challenges,
 
 The programming language we have decided to use is Java which we will implement on Desktop using JavaFX and GUI.
 
+### Build Instructions
+
+First, make sure you have Java installed. Here's a simple [How To?](https://www3.ntu.edu.sg/home/ehchua/programming/howto/JDK_Howto.html). Then, run the following commands:
+
+1 - `$ git clone https://github.com/NaisilaPuka/rushHourByChainCoders.git`
+
+2 - `$ cd rushHourByChainCoders/src/rushHour`
+
+3 - `$ javac *.java`
+
+4 - `$ cd ../..`
+
+5 - `java src.rushHour.RushHourFrame`
+
+After 5th command, the game should open (please contact us in case you experience any problem). We hope you have fun playing! :smile:
+
 ### Hardware Version of the Game - Tutorials
 
 https://www.thinkfun.com/products/rush-hour/
