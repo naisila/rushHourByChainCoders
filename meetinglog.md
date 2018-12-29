@@ -365,7 +365,7 @@ Chain Coders decided to share a "work-selfie" in the middle of snow! From left t
 
 Fatbardh - Fixed some small bugs in explode and undo feature of the game play. Created a personalized button for the game where he added sounds. Continued integrating the "Rush Hour" movie theme.
 
-Naisila - Integrated the File Management System in Customize and Garage panel. Fixed UI in Choose Panel and Choose Difficulty panels. Fixed the penetrated clicks throughout the JLayeredPane in RushHourFrame by removing the JLayered Pane and using RushHourFrame refresh feature. Merged all code together by making all classes compatible with each other. Uploaded code to GitHub.
+Naisila - Integrated the File Management System in Customize and Garage panel. Fixed UI in Choose Panel and Choose Difficulty panels. Fixed the penetrated clicks throughout the JLayeredPane in RushHourFrame by removing the JLayered Pane and using RushHourFrame refresh feature. Merged all code together by making all classes compatible with each other. Uploaded code to GitHub. Fixed the build paths and made build instructions.
 
 Masna - Finished the File Management System for Garage Panel. Helped in finishing the presentation slides.
 
