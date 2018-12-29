@@ -356,6 +356,11 @@ Talha - Helped Masna with the final report and started working on presentation s
 -  Finish merging all implementation pieces.
 -  Upload everything to GitHub.
 
+### Special for the day! 
+Chain Coders decided to share a "work-selfie" in the middle of snow! From left to right: Masna, Kunduz, Fatbardh, Talha, Naisila
+
+<img src="https://i.ibb.co/02FMkG3/IMG-0872.jpg" alt="chain_coders" width="400"/>
+
 ### Activities and Contributions
 
 Fatbardh - Fixed some small bugs in explode and undo feature of the game play. Created a personalized button for the game where he added sounds. Continued integrating the "Rush Hour" movie theme.
