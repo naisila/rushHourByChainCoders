@@ -1,4 +1,4 @@
-package rushHour;
+package src.rushHour;
 
 /**
  * __Main Menu Panel of the game.
@@ -119,7 +119,7 @@ public class MainMenu extends JPanel {
 				Clip clipNameClip;
 				try {
 					AudioInputStream clipNameAIS = AudioSystem
-							.getAudioInputStream(getClass().getResourceAsStream("/rushHour/sound/button.wav"));
+							.getAudioInputStream(getClass().getResourceAsStream("/src/rushHour/sound/button.wav"));
 					// System.out.println("4");
 					clipNameClip = AudioSystem.getClip();
 					// System.out.println("1");
@@ -152,7 +152,7 @@ public class MainMenu extends JPanel {
 				Clip clipNameClip;
 				try {
 					AudioInputStream clipNameAIS = AudioSystem
-							.getAudioInputStream(getClass().getResourceAsStream("/rushHour/sound/button.wav"));
+							.getAudioInputStream(getClass().getResourceAsStream("/src/rushHour/sound/button.wav"));
 					// System.out.println("4");
 					clipNameClip = AudioSystem.getClip();
 					// System.out.println("1");
@@ -184,7 +184,7 @@ public class MainMenu extends JPanel {
 				Clip clipNameClip;
 				try {
 					AudioInputStream clipNameAIS = AudioSystem
-							.getAudioInputStream(getClass().getResourceAsStream("/rushHour/sound/button.wav"));
+							.getAudioInputStream(getClass().getResourceAsStream("/src/rushHour/sound/button.wav"));
 					// System.out.println("4");
 					clipNameClip = AudioSystem.getClip();
 					// System.out.println("1");
@@ -216,7 +216,7 @@ public class MainMenu extends JPanel {
 				Clip clipNameClip;
 				try {
 					AudioInputStream clipNameAIS = AudioSystem
-							.getAudioInputStream(getClass().getResourceAsStream("/rushHour/sound/button.wav"));
+							.getAudioInputStream(getClass().getResourceAsStream("/src/rushHour/sound/button.wav"));
 					// System.out.println("4");
 					clipNameClip = AudioSystem.getClip();
 					// System.out.println("1");

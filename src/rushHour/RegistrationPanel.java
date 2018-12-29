@@ -1,4 +1,4 @@
-package rushHour;
+package src.rushHour;
 
 /**
  * __Registration Panel of the game.

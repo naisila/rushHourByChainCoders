@@ -1,4 +1,4 @@
-package rushHour;
+package src.rushHour;
 
 /**
  * __Main Frame of the game. From here you can navigate anywhere in our game.

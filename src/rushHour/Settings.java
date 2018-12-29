@@ -1,4 +1,4 @@
-package rushHour;
+package src.rushHour;
 
 /**
  * __Settings class of the game, related to fms.

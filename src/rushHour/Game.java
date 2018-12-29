@@ -1,4 +1,4 @@
-package rushHour;
+package src.rushHour;
 
 /**
  * __Game Panel of the game.
@@ -544,7 +544,7 @@ public class Game extends JPanel {
 				Clip clipNameClip;
 				try {
 					AudioInputStream clipNameAIS = AudioSystem
-							.getAudioInputStream(getClass().getResourceAsStream("/rushHour/sound/explosion.wav"));
+							.getAudioInputStream(getClass().getResourceAsStream("/src/rushHour/sound/explosion.wav"));
 
 					clipNameClip = AudioSystem.getClip();
 					clipNameClip.open(clipNameAIS);

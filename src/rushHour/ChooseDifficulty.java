@@ -1,4 +1,4 @@
-package rushHour;
+package src.rushHour;
 
 /**
  * __Choose Difficulty Panel of the game.
@@ -91,7 +91,7 @@ public class ChooseDifficulty extends JPanel {
 				Clip clipNameClip;
 				try {
 					AudioInputStream clipNameAIS = AudioSystem
-							.getAudioInputStream(getClass().getResourceAsStream("/rushHour/sound/button.wav"));
+							.getAudioInputStream(getClass().getResourceAsStream("/src/rushHour/sound/button.wav"));
 					// System.out.println("4");
 					clipNameClip = AudioSystem.getClip();
 					// System.out.println("1");
@@ -131,7 +131,7 @@ public class ChooseDifficulty extends JPanel {
 				Clip clipNameClip;
 				try {
 					AudioInputStream clipNameAIS = AudioSystem
-							.getAudioInputStream(getClass().getResourceAsStream("/rushHour/sound/button.wav"));
+							.getAudioInputStream(getClass().getResourceAsStream("/src/rushHour/sound/button.wav"));
 					// System.out.println("4");
 					clipNameClip = AudioSystem.getClip();
 					// System.out.println("1");
@@ -175,7 +175,7 @@ public class ChooseDifficulty extends JPanel {
 				Clip clipNameClip;
 				try {
 					AudioInputStream clipNameAIS = AudioSystem
-							.getAudioInputStream(getClass().getResourceAsStream("/rushHour/sound/button.wav"));
+							.getAudioInputStream(getClass().getResourceAsStream("/src/rushHour/sound/button.wav"));
 					// System.out.println("4");
 					clipNameClip = AudioSystem.getClip();
 					// System.out.println("1");
@@ -216,7 +216,7 @@ public class ChooseDifficulty extends JPanel {
 				Clip clipNameClip;
 				try {
 					AudioInputStream clipNameAIS = AudioSystem
-							.getAudioInputStream(getClass().getResourceAsStream("/rushHour/sound/button.wav"));
+							.getAudioInputStream(getClass().getResourceAsStream("/src/rushHour/sound/button.wav"));
 					// System.out.println("4");
 					clipNameClip = AudioSystem.getClip();
 					// System.out.println("1");

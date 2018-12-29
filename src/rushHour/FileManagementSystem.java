@@ -1,4 +1,4 @@
-package rushHour;
+package src.rushHour;
 
 /**
  * __File Management System of the game.

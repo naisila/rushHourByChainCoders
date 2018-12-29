@@ -1,4 +1,4 @@
-package rushHour;
+package src.rushHour;
 
 /**
  * __Choose Puzzle Panel of the game.
@@ -102,7 +102,7 @@ public class ChoosePuzzle extends JPanel {
 
 		// Image of Choose Puzzle
 		// URL bLabel = ChoosePuzzle.class.getResource("src/rushHour/images/back.png");
-		ImageIcon icone = new ImageIcon(new ImageIcon(ChoosePuzzle.class.getResource("/rushHour/images/back.png"))
+		ImageIcon icone = new ImageIcon(new ImageIcon("src/rushHour/images/back.png")
 				.getImage().getScaledInstance(120, 65, Image.SCALE_DEFAULT));
 
 		back = new JLabel("");

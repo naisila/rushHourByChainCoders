@@ -1,4 +1,4 @@
-package rushHour;
+package src.rushHour;
 /**
  * __Instructions Panel of the game.
  * @author __Kunduz

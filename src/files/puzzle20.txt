@@ -1,6 +1,6 @@
 Grid:7;
-Solved:1;
-Stars:3;
+Solved:0;
+Stars:0;
 Crowns:0;
 MinMoves:12;
 Moves:5;

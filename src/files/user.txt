@@ -1,6 +1,0 @@
-Name: JOHN;
-Avatar: Avatar.png;
-Coins: 56000;
-Stars: 40;
-Crowns: 0;
-Car: red car.png;
