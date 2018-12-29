@@ -286,3 +286,94 @@ All - Couldn't concentrate much. This semester has tired us. We decided to have 
 Naisila - Updated the introduction, made a deployment diagram for the game together with its explanation, added the Design Trade-Offs section by also discussing with the group about relevant design trade-off decisions taken. Updated the format accordingly and merged everything into a single document.
 
 Fatbardh - Added the relevant references to our Design Report.
+
+## 17th Meeting (18 December 2018)
+
+### Agenda
+
+-  Divide the work in the implementation.
+
+### Activities and Contributions
+
+Naisila - Took responsibility for Customize Panel.
+
+Fatbardh - Took responsibility for making the cars slide smoothly in the board and not move them by clicking.
+
+Masna - Took responsibility for File Management System.
+
+Kunduz - Took responsibility for Instructions Panel
+
+Talha - Took responsibility for creating Puzzles.
+
+## 18th Meeting (22 December 2018)
+
+### Agenda
+
+-  Finish individual implementation assignments.
+-  Discuss what everyone did in the implementation and merge the work.
+
+### Activities and Contributions
+
+Naisila - Finished Customize Panel, integrated File Management System in Registration and Menu Panel.
+
+Fatbardh - Finished the car sliding, made us a surprise by adding Resizable Grid, Undo and Explode features as well. Had the idea of merging the game with "Rush Hour" movie theme. Discussion for this idea postponed to the following meeting.
+
+Masna - Finished File Management System for Registration, Menu, Choose Level, Choose Difficulty and Game Play.
+
+Kunduz - Finished Instructions Panel. Started working on Music System.
+
+Talha - Finished puzzle text files for all levels. Made puzzles with both 6x6 and 7x7 grids.
+
+## 19th Meeting (23 December 2018)
+
+### Agenda
+
+-  Finish final report.
+-  Start slides presentation.
+-  Merge individual implementations.
+-  Decide on Fatbardh's idea on adding the "Rush Hour" movie theme.
+
+### Activities and Contributions
+
+All - Decided on merging the game with "Rush Hour" theme.
+
+Naisila - Integrated File Management System in Choose Puzzle, Choose Difficulty and Game Play panels. Integrated Talha's puzzle with the game itself.
+
+Fatbardh - Integrated many "Rush Hour" movie themes in the game, such as different backgrounds and nice gif-s when the user wins a game etc.
+
+Masna - Finished File Management System for Settings Panel. Wrote the final report.
+
+Kunduz - Continued working on Music System. Added gif-s to the instruction panel.
+
+Talha - Helped Masna with the final report and started working on presentation slides.
+
+## 20th Meeting (25 December 2018)
+
+### Agenda
+
+-  Finish slides presentation.
+-  Create video trailer for Rush Hour CC
+-  Finish merging all implementation pieces.
+-  Upload everything to GitHub.
+
+### Activities and Contributions
+
+Fatbardh - Fixed some small bugs in explode and undo feature of the game play. Created a personalized button for the game where he added sounds. Continued integrating the "Rush Hour" movie theme.
+
+Naisila - Integrated the File Management System in Customize and Garage panel. Fixed UI in Choose Panel and Choose Difficulty panels. Fixed the penetrated clicks throughout the JLayeredPane in RushHourFrame by removing the JLayered Pane and using RushHourFrame refresh feature. Merged all code together by making all classes compatible with each other. Uploaded code to GitHub.
+
+Masna - Finished the File Management System for Garage Panel. Helped in finishing the presentation slides.
+
+Talha - Fixed UI in Choose Puzzle Panel. Created the video trailer for the game. Helped in finishing the presentation slides.
+
+Kunduz - Finished the Music system of the game. Integrated and finished the volume system of the game. Helped in finishing the presentation slides.
+
+## 21st Meeting (26 December 2018)
+
+### Agenda
+
+-  Rehearse Presentation.
+
+### Activities and Contributions
+
+All - Made two presentation rehearsals. We are ready to present our game :smile:
