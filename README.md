@@ -36,3 +36,15 @@ Check out [this cool YouTube tutorial](https://www.youtube.com/watch?v=mbmSakJnn
 Check out [this cool presentation made by Chain Coders](https://docs.google.com/presentation/d/1YYexpBScjx-HPlzynTmQXB8Lhkw0m3CyYwm7uDCFTVI/edit?usp=sharing).
 
 Enjoy! :heart: We are working on version 2.0.
+
+## Iteration 2 of the Project
+
+Hooray hooray! We finished version 2.0 of the game and we are even more excited to announce it!
+
+Check out [this cool Game Trailer](https://www.youtube.com/watch?v=BxhfhZMh3Es).
+
+Check out [the full project presentation made by Chain Coders](https://docs.google.com/presentation/d/15Rc-cR5yDQnqsD-80W1g8u4ayo8wd1HPbeRZRZZZ8q4/edit#slide=id.p).
+
+Also, you can look at this [Game Tutorial](https://www.youtube.com/watch?v=yuGKpxTDBoc&t=2s)!
+
+Enjoy! :heart: User is top priority for us! We hope you have fun playing this game!
