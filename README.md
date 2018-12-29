@@ -33,7 +33,7 @@ First, make sure you have Java installed. Here's a simple [How To?](https://www3
 
 4 - `$ cd ../..`
 
-5 - `java src.rushHour.RushHourFrame`
+5 - `$ java src.rushHour.RushHourFrame`
 
 After 5th command, the game should open (please contact us in case you experience any problem). We hope you have fun playing! :smile:
 
