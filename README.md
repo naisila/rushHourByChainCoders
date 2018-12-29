@@ -1,14 +1,14 @@
 # rushHourByChainCoders
 
-"Rush-Hour" game for CS319 (Object Oriented Software Engineering) Term Project
+"Rush-Hour" game for [CS319 (Object Oriented Software Engineering)](https://stars.bilkent.edu.tr/syllabus/view/CS/319/) Term Project, Bilkent University, Fall 2018
 
 ### Group Members
 
-1. Naisila Puka
-2. Talha Zeeshan
-3. Kunduz Efronova
-4. Masna Ahmed
-5. Fatbardh Feta
+1. [Naisila Puka](https://github.com/NaisilaPuka)
+2. [Talha Zeeshan](https://github.com/Geo-Quad)
+3. [Kunduz Efronova](https://github.com/efronova)
+4. [Masna Ahmed](https://github.com/maZna)
+5. [Fatbardh Feta](https://github.com/fatbardhfeta)
 
 ### Description of the Project
 
