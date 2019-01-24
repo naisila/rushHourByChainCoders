@@ -27,15 +27,13 @@ First, make sure you have Java installed. Here's a simple [How To?](https://www3
 
 1 - `$ git clone https://github.com/NaisilaPuka/rushHourByChainCoders.git`
 
-2 - `$ cd rushHourByChainCoders/src/rushHour`
+2 - `$ cd rushHourByChainCoders/`
 
-3 - `$ javac *.java`
+3 - `$ javac src/rushHour/*.java`
 
-4 - `$ cd ../..`
+4 - `$ java src.rushHour.RushHourFrame`
 
-5 - `$ java src.rushHour.RushHourFrame`
-
-After 5th command, the game should open (please contact us in case you experience any problem). We hope you have fun playing! :smile:
+After 4th command, the game should open (please contact us in case you experience any problem). We hope you have fun playing! :smile:
 
 ### Hardware Version of the Game - Tutorials
 
