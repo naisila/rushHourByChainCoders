@@ -4,7 +4,7 @@
 
 ### Group Members
 
-1. [Naisila Puka](https://github.com/NaisilaPuka)
+1. [Naisila Puka](https://github.com/naisila)
 2. [Talha Zeeshan](https://github.com/Geo-Quad)
 3. [Kunduz Efronova](https://github.com/efronova)
 4. [Masna Ahmed](https://github.com/maZna)
@@ -25,7 +25,7 @@ The programming language we have decided to use is Java which we will implement 
 
 First, make sure you have Java installed. Here's a simple [How To?](https://www3.ntu.edu.sg/home/ehchua/programming/howto/JDK_Howto.html). Then, run the following commands:
 
-1 - `$ git clone https://github.com/NaisilaPuka/rushHourByChainCoders.git`
+1 - `$ git clone https://github.com/naisila/rushHourByChainCoders.git`
 
 2 - `$ cd rushHourByChainCoders/`
 
