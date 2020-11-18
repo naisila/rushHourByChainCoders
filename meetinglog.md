@@ -235,7 +235,7 @@ Kunduz - Wrote the Registration and Main Menu Panel classes. Together with Kundu
 
 Naisila - Merged the made classes in a single Eclipse project. Fixed image path inconsistencies. Wrote the RushHourFrame class which launches the game and adds functionality between the panels. Together with Masna, added Congratulations Label in the win state of the game as well as movement count functionality, based on Fatbardhi's implemented control methods.
 
-Masna - Updated the ChooseDifficulty Panel to the new frame dimensions. Made some final changes to MyGarage Panel. Wrote the non-functional requirements part in the slides presentation. Made the game video tutorial and uploaded it in YouTube. This video can be found at [this part](https://github.com/NaisilaPuka/rushHourByChainCoders#iteration-1-of-the-project).
+Masna - Updated the ChooseDifficulty Panel to the new frame dimensions. Made some final changes to MyGarage Panel. Wrote the non-functional requirements part in the slides presentation. Made the game video tutorial and uploaded it in YouTube. This video can be found at [this part](https://github.com/naisila/rushHourByChainCoders#iteration-1-of-the-project).
 
 All - Divided presentation work based on who had done what. This was an easy task since the work has been distributed so far and everyone had their own part to talk about.
 
